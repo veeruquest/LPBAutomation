@@ -20,6 +20,6 @@ When(`enters the function name as {string} and click on search button`, async fu
 homePageloc = new homePage(fixture.page);
     fixture.logger.info("Enter the function name and click on search button");
     await homePageloc.enterFunctionName(funName);
-    await fixture.page.waitForTimeout(1000)
+    await fixture.page.waitForTimeout(6000)
 });
 

@@ -49,7 +49,7 @@ export default class LoginPage {
     async handleFrame() {
         try {
             // Wait for the iframe to appear in the DOM
-            const frameElementHandle = await this.page.waitForSelector('#ifr_AlertWin', { timeout: 20000 });
+            const frameElementHandle = await this.page.waitForSelector('#ifr_AlertWin', { timeout: 30000 });
             const frame = await frameElementHandle.contentFrame();
             await frame.click("//table//tr//td//input[@id='BTN_OK']");
         } catch (message) {

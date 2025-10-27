@@ -20,6 +20,12 @@ When(`enters the function name as {string} and click on search button`, async fu
 homePageloc = new homePage(fixture.page);
     fixture.logger.info("Enter the function name and click on search button");
     await homePageloc.enterFunctionName(funName);
-    await fixture.page.waitForTimeout(6000)
+    await fixture.page.waitForTimeout(10000)
 });
 
+Given(`enter the Branch number as {string}`, async function(number) {
+     homePageloc = new homePage(fixture.page);
+    fixture.logger.info("Select the Branch number");
+    await homePageloc.changeBranchNumber(number);
+    await fixture.page.waitForTimeout(2000)
+});

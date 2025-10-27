@@ -23,7 +23,7 @@ export default class ReusableMethods {
   }
 
   // Function to generate a random alphanumeric with given length
-  async generateAlphanumericValue(locator, length) {
+  async generateAlphanumericValue(length:number) {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let result = '';
     const charactersLength = characters.length
@@ -32,12 +32,12 @@ export default class ReusableMethods {
       result += characters.charAt(randomIndex);
     }
     console.log(result);
-    this.enterValue(locator, result);
+   
     return result;
   }
 
   //Function to generate the random string with geven length
-  async generateRandomString(locator, length) {
+  async generateRandomString(length) {
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let result = "";
     const charactersLength = characters.length;
@@ -45,7 +45,7 @@ export default class ReusableMethods {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     console.log(result);
-    this.enterValue(locator, result);
+   
     return result;
   }
 

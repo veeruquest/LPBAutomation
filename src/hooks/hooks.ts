@@ -36,7 +36,7 @@ Before(async function ({ pickle }) {
   fixture.page = page;
   fixture.logger = createLogger(options(scenarioName));
   // Track network logs for all pages
-  trackNetworkLogs(context, page);
+  //trackNetworkLogs(context, page);
 });
 
 // It will trigger for auth scenarios

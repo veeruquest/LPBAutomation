@@ -1,12 +1,12 @@
 @FinanceGL
 
 Feature: Process FinanceGL for a customer
-        @set3
+        @set3   @tdAccChange
         Scenario Outline: Validate the Extraction of reports before posting journals from a new GL
             Given User navigates to the application
-             When user enters the username and password
+             When MAK user enters the username and password
               And click on signin button
-             Then validate the home page title as "<HomePageTitle>"
+             Then valdiate the home page tite as "<HomePageTitle>"
               And enter the Branch number as "<BranchNumber>"
              When enters the function name as "<FunctionName>" and click on search button
               And User clicks on EnterQuery Tab
@@ -21,7 +21,7 @@ Feature: Process FinanceGL for a customer
         @set3
         Scenario Outline: Login with Maker Credential and create journal in DEDJNLON
             Given User navigates to the application
-             When user enters the username and password
+             When MAK user enters the username and password
               And click on signin button
               And enter the Branch number as "<BranchNumber>"
              When enters the function name as "<FunctionName>" and click on search button
@@ -64,7 +64,7 @@ Feature: Process FinanceGL for a customer
         @set3
         Scenario Outline: Login with Checker Credential and authorize
             Given User navigates to the application
-             When user enters the username and password using cheker credentials
+             When CHE user enters the username and password
               And click on signin button as cheker
               And enter the Branch number as "<BranchNumber>"
              When enters the function name as "<FunctionName>" and click on search button
@@ -84,9 +84,9 @@ Feature: Process FinanceGL for a customer
         @set3
         Scenario Outline: Validate the Extraction of reports after posting journals from a new GL
             Given User navigates to the application
-             When user enters the username and password
+             When MAK user enters the username and password
               And click on signin button
-             Then validate the home page title as "<HomePageTitle>"
+             Then valdiate the home page tite as "<HomePageTitle>"
               And enter the Branch number as "<BranchNumber>"
              When enters the function name as "<FunctionName>" and click on search button
               And User clicks on EnterQuery Tab
@@ -98,10 +98,10 @@ Feature: Process FinanceGL for a customer
                   | BranchNumber | FunctionName |
                   | 100          | ACDTRNQY     |
 
-        @set1
+        @set1    @tdGLCodeChange
         Scenario Outline: Login with Maker Credential and create a GL in GLDCHACC
             Given User navigates to the application
-             When user enters the username and password
+             When MAK user enters the username and password
               And click on signin button
               And enter the Branch number as "<BranchNumber>"
              When enters the function name as "<FunctionName>" and click on search button
@@ -130,7 +130,7 @@ Feature: Process FinanceGL for a customer
         @set1
         Scenario Outline: Login with Checker Credential and authorize a newly created GL
             Given User navigates to the application
-             When user enters the username and password using cheker credentials
+             When CHE user enters the username and password
               And click on signin button as cheker
               And enter the Branch number as "<BranchNumber>"
              When enters the function name as "<FunctionName>" and click on search button
@@ -150,6 +150,7 @@ Feature: Process FinanceGL for a customer
         @set1
         Scenario Outline: Attempt to create a GL with a duplicate GL Code and verify the system shows an error
             Given User navigates to the application
+             When MAK user enters the username and password
              When user enters the username and password
               And click on signin button
               And enter the Branch number as "<BranchNumber>"
@@ -177,7 +178,7 @@ Feature: Process FinanceGL for a customer
         @set1
         Scenario Outline: Verify user can unlock and modify GL Description in GLDCHACC
             Given User navigates to the application
-             When user enters the username and password
+             When MAK user enters the username and password
               And click on signin button
               And enter the Branch number as "<BranchNumber>"
              When enters the function name as "<FunctionName>" and click on search button
@@ -197,7 +198,7 @@ Feature: Process FinanceGL for a customer
         @set1
         Scenario Outline: Login with Checker Credential and authorize a newly created GL
             Given User navigates to the application
-             When user enters the username and password using cheker credentials
+             When CHE user enters the username and password
               And click on signin button as cheker
               And enter the Branch number as "<BranchNumber>"
              When enters the function name as "<FunctionName>" and click on search button
@@ -215,10 +216,10 @@ Feature: Process FinanceGL for a customer
                   | 999          | GLSCHACC     |
 
 
-        @set2
+        @set2    @tdAccChange
         Scenario Outline: Verify a Direct Posting GL is not available in LOV while creating a transaction in DEDJNLON
             Given User navigates to the application
-             When user enters the username and password
+             When MAK user enters the username and password
               And click on signin button
               And enter the Branch number as "<BranchNumber>"
              When enters the function name as "<FunctionName>" and click on search button

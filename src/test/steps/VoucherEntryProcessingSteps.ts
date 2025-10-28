@@ -19,6 +19,7 @@ let ProcessingPageloc: VoucherEntryProcessingPage ;
 
 //let loginPageloc: loginPage;  
 setDefaultTimeout(timeout);
+
 When("user Click on New", async function () {
   ProcessingPageloc = new VoucherEntryProcessingPage(fixture.page);
   fixture.logger.info("Clicking on New");

@@ -4,7 +4,6 @@ node_modules/
 /playwright/.cache/
 /test-result/
 /test-results/
-config/
 cucumber.js
 cucumber-report.html
 assets

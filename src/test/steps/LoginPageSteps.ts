@@ -52,7 +52,7 @@ When(`click on signin button`, async function () {
     fixture.logger.info("Click on Login Button");
     await fixture.page.waitForTimeout(1000)
     await loginPageloc.loginBtn(process.env.MAKPassword);
-    console.log("Clicked on login button veeru")
+    console.log("Clicked on login button")
    await loginPageloc.handleFrame();
     
 
@@ -92,9 +92,8 @@ When('CHE user login in the application', async function () {
     loginPageloc = new loginPage(fixture.page);
     fixture.logger.info("Click on Login Button");
     await fixture.page.waitForTimeout(1000)
-    await loginPageloc.loginBtn1(process.env.CHEPassword);
-    console.log("Clicked on login button veeru")
-   await loginPageloc.handleFrame();
+    await loginPageloc.chkLoginBtn(process.env.CHEPassword);
+  await loginPageloc.handleFrame();
 });
 
 When('MAK user login in the application', async function () {

@@ -1,5 +1,5 @@
 @FinanceGL
-
+ 
 Feature: Process FinanceGL for a customer
         @set3   @tdAccChange
         Scenario Outline: Validate the Extraction of reports before posting journals from a new GL
@@ -13,11 +13,11 @@ Feature: Process FinanceGL for a customer
               And User enters AccountNumber "<AccountNumber>"
              When User clicks on ExecuteQuery Tab
              Then validate query results are not displayed
-
+ 
         Examples:
                   | BranchNumber | FunctionName | AccountNumber |
                   | 100          | ACDTRNQY     | 110010753     |
-
+ 
         @set3
         Scenario Outline: Login with Maker Credential and create journal in DEDJNLON
             Given User navigates to the application
@@ -56,11 +56,11 @@ Feature: Process FinanceGL for a customer
               And Change to Home Branch number as "<HomeBranchNumber>"
               And Click on SignOff1 button
     # And Confirm with Ok1 button
-
+ 
         Examples:
                   | BranchNumber | FunctionName | Description    | Debit | Credit | DrCr1 | BranchCode1 | Currency1 | Amount1 | TxnCode1 | DrCr2  | BranchCode2 | AccountNumber2 | Currency2 | Amount2 | TxnCode2 | HomeBranchNumber |
                   | 100          | DEDJNLON     | DE Transaction | 1000  | 1000   | Debit | 100         | LSL       | 1000    | ANC      | Credit | 100         | 1000028500015  | LSL       | 1000    | ANC      | 999              |
-
+ 
         @set3
         Scenario Outline: Login with Checker Credential and authorize
             Given User navigates to the application
@@ -76,11 +76,11 @@ Feature: Process FinanceGL for a customer
               And Click on Authorize to confirm
               And Click on OkafterAuthorize for DESJNLON
              Then System should authorize the record successfully and record status should be Authorized for DESJNLON
-
+ 
         Examples:
                   | BranchNumber | FunctionName |
                   | 100          | DESJNLON     |
-
+ 
         @set3
         Scenario Outline: Validate the Extraction of reports after posting journals from a new GL
             Given User navigates to the application
@@ -93,11 +93,11 @@ Feature: Process FinanceGL for a customer
               And User enters the same AccountNumber
              When User clicks on ExecuteQuery Tab
              Then validate query results are displayed
-  
+ 
         Examples:
                   | BranchNumber | FunctionName |
                   | 100          | ACDTRNQY     |
-
+ 
         @set1    @tdGLCodeChange
         Scenario Outline: Login with Maker Credential and create a GL in GLDCHACC
             Given User navigates to the application
@@ -122,7 +122,7 @@ Feature: Process FinanceGL for a customer
               And Click on Ok button
               And Click on Exit button
               And Click on SignOff button
-    
+   
    
         Examples:
                   | BranchNumber | FunctionName | GLCode    | GLDescription            | GLType | Category | DisplayOnReport | CurrencyRestrictions | PostingRestrictions | Reconciliation        | ParentGL  |
@@ -142,11 +142,11 @@ Feature: Process FinanceGL for a customer
               And Click on Accept
               And Click on OkafterAccept
     # Then System should authorize the record successfully and record status should be Authorized
-
+ 
         Examples:
                   | BranchNumber | FunctionName |
                   | 999          | GLSCHACC     |
-
+ 
         @set1
         Scenario Outline: Attempt to create a GL with a duplicate GL Code and verify the system shows an error
             Given User navigates to the application
@@ -170,7 +170,7 @@ Feature: Process FinanceGL for a customer
               And Enter the Parent GL2
               And Click on Save Duplicate
     #  Then System should not allow to save the record and should display error "<ExpectedError>"
-
+ 
         Examples:
                   | BranchNumber | FunctionName |
                   | 999          | GLDCHACC     |
@@ -190,11 +190,11 @@ Feature: Process FinanceGL for a customer
               And Click on SavebuttonRN
               And Click on OkRN
              Then System should save the record successfully and status should be in unauthorized.
-
+ 
         Examples:
                   | BranchNumber | FunctionName |
                   | 999          | GLDCHACC     |
-
+ 
         @set1
         Scenario Outline: Login with Checker Credential and authorize a newly created GL
             Given User navigates to the application
@@ -210,12 +210,12 @@ Feature: Process FinanceGL for a customer
               And Click on Accept
               And Click on OkafterAccept
     # Then System should authorize the record successfully and record status should be Authorized
-
+ 
         Examples:
                   | BranchNumber | FunctionName |
                   | 999          | GLSCHACC     |
-
-
+ 
+ 
         @set2    @tdAccChange
         Scenario Outline: Verify a Direct Posting GL is not available in LOV while creating a transaction in DEDJNLON
             Given User navigates to the application
@@ -237,7 +237,7 @@ Feature: Process FinanceGL for a customer
               And Click on LOVSearch button
               And Enter the BLKAccount Number in the Account field "<AccountNumber>"
              Then System should not display the provided GL in LOV
-
+ 
         Examples:
                   | BranchNumber | FunctionName | BatchNumber | Description    | Debit | Credit | DrCr  | BranchCode | AccountNumber |
                   | 100          | DEDJNLON     | 1010        | DE Transaction | 1000  | 1000   | Debit | 100        | 340030675     |

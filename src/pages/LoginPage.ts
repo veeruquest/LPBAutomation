@@ -149,6 +149,34 @@ async loginBtn1(password: string) {
            
         }
     }
+    async chkLoginBtn(password: string) {
+        try {
+            await this.page.locator(this.Elements.loginBtn).click();
+            await this.page.waitForTimeout(1000);
+            if (await this.page.title() === "Oracle Financial Services"){
+                console.log("Login successful, no password change required.");
+                const frameElement = await this.page.waitForSelector('iframe[name="ifr_AlertWin"]', {
+                    state: 'visible',
+                    timeout: 30000  
+                }).catch(() => null);
+                if (frameElement) {
+                    const frame = await frameElement.contentFrame();
+                    if (frame) {
+                        console.log("Frame 'ifr_AlertWin' is visible and accessible.");
+                        await frame.click("//table//tr//td//input[@id='BTN_OK']");
+                        await frame.fill(this.Elements.newPassword, password);
+                        await frame.click("//input[@id='BTN_SAVE']");
+                    } else {
+                        console.log("Frame element found, but contentFrame() returned null.");
+                    }
+                } else {
+                    console.log("Frame 'ifr_AlertWin' not visible or not found.");
+                }
+            }
+        } catch (message) {
+            console.log("No password entering required");
+        }
+    }
 
 }
 

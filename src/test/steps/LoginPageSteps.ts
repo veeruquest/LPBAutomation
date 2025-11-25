@@ -46,6 +46,20 @@ When(`CHE user enters the username and password`, async function () {
     await loginPageloc.enterPassword(process.env.CHEPassword);
 });
 
+When(`CHE second user enters the username and password`, async function () {
+    loginPageloc = new loginPage(fixture.page);
+    fixture.logger.info("Enter the user name and Password");
+    await loginPageloc.enterUserName(process.env.CHEUserName1);
+    await fixture.page.waitForTimeout(2000)
+    await loginPageloc.enterPassword(process.env.CHEPassword1);
+});
+When('CHE second user login in the application', async function () {
+    loginPageloc = new loginPage(fixture.page);
+    fixture.logger.info("Click on Login Button");
+    await fixture.page.waitForTimeout(1000)
+    await loginPageloc.chkLoginBtn(process.env.CHEPassword1);
+  await loginPageloc.handleFrame();
+});
 
 When(`click on signin button`, async function () {
     loginPageloc = new loginPage(fixture.page);

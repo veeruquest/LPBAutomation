@@ -85,24 +85,22 @@ export default class CreateTellerPage {
     // Wait for the new page to open
     newPage = await pagePromise;
      await newPage.waitForLoadState('domcontentloaded');
-   
-   //  try {
-  
-    //     await newPage.locator("#ssoAlreadyLoggedInUser", { timeout: 5000 });
-    //     console.log("Alert dialog detected");
-    //     try{
-    //     await newPage.getByRole('button', { name: 'Proceed' }).click();
-    //     console.log("Clicked on Proceed button");
-    //     await newPage.waitForTimeout(5000)
+     
+          await newPage.locator("#ssoAlreadyLoggedInUser", { timeout: 5000 });
+        console.log("Alert dialog detected");
+        try{
+          await newPage.locator("(//h1[normalize-space()='User Already Logged In'])[1]",{ state: 'visible',timeout:2000})
+            console.log("dialog detected");
+        await newPage.getByRole('button', { name: 'Proceed' }).click();
+        console.log("Clicked on Proceed button");
+        await newPage.waitForTimeout(5000)
+                     
+        console.log("Alert closed");
         
-          
-    
-    //     console.log("Alert closed");
-        
-    // } catch (error) {
-    //     console.log("Alert dialog interaction failed:");
+    } catch (error) {
+        console.log("Alert dialog interaction failed:");
    
-    // }
+    }
      
     await newPage.locator("//div[@class='branch-container']//span[@id='branch-name']").click({ timeout: 200000 });
     console.log("Clicked on branch name in new page");
@@ -130,8 +128,11 @@ export default class CreateTellerPage {
     } catch (error) {
         console.log("No alert dialog found or already dismissed");
     }
- await newPage.goto("https://lpbprodobmasvr01.lpb.co.ls:8006/app-shell/")   //Pre prod Env
+ //await newPage.goto("https://lpbprodobmasvr01.lpb.co.ls:8006/app-shell/")   //Pre prod Env
 //await newPage.goto("https://lpbauatobmsvr01.lpb.co.ls:8006/app-shell/")   //UAT Env
+const newPageUrl=newPage.url();
+    await newPage.goto(newPageUrl)
+    await newPage.waitForTimeout(5000)
      
     await newPage.locator("//div[@class='branch-container']//span[@id='branch-name']").click({ timeout: 150000 });
     console.log("Clicked on branch name in new page");

@@ -42,7 +42,7 @@ Feature: Processing Feature
     And valdiate the home page tite as "<HomePageTitle>"
     And enter the Branch number as "<BranchNumber>"
     And enters the function name as "<functionname>" and click on search button
-    And select "<AutheirizationStatus>" from the drop down list 
+    And select "<AuthorizationStatus>" from the drop down list 
     And user enter Batch number
     And click on Search Button
     And user doubleclicks on the record
@@ -52,7 +52,7 @@ Feature: Processing Feature
     And user SignOff the application
 
   Examples:
-     | HomePageTitle                                       | BranchNumber | FunctionName  | BatchNumber | Description | Debit | Credit | DebitBranch | DebitAccount | CreditBranch | CreditAccount  | Currency | Amount | TransactionCode |functionname|AutheirizationStatus |branchnumber|
+     | HomePageTitle                                       | BranchNumber | FunctionName  | BatchNumber | Description | Debit | Credit | DebitBranch | DebitAccount | CreditBranch | CreditAccount  | Currency | Amount | TransactionCode |functionname|AuthorizationStatus |branchnumber|
     | Oracle Financial Services - ENG - Transaction Input | 100        | DEDJNLON        |     785D43        | 101DE       | 2000 | 2000   | 100         | 110010101    | 100          | 1016722500012  | LSL      | 2000   | AAT             |DESJNLON   |    U                   |999|
 
 

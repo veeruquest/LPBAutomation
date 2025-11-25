@@ -31,7 +31,8 @@ export default class ReatailDepositPage {
     confirmBtn:"(//button[@class='oj-button-button'])[1]",
     submitforApprove:"(//button[@class='oj-button-button'])[1]",
     adviceconf: "(//span[@data-bind='text: labels.no'][normalize-space()='No'])[1]",
-    NoBtn: "(//span[@id='_oj82|text'])[1]"
+    NoBtn: "(//span[@id='_oj82|text'])[1]",
+    NoBtn1: "(//span[@id='_oj72|text'])[1]"
   };
 
   async NextGenFun() {
@@ -50,18 +51,21 @@ export default class ReatailDepositPage {
       throw error;
     }
     newPage = await pagePromise;
-   // await newPage.waitForLoadState('domcontentloaded');
-    try {
-    //  await newPage.locator("#ssoAlreadyLoggedInUser", { timeout: 25000 })
-    //   console.log("sso dialog detected");
-      // await newPage.waitForSelector("//button[text()='Proceed']",{timeout:2000})
-      await newPage.getByRole('button', { name: 'Proceed' }).click();
-      console.log("Clicked on Proceed button");
-      await newPage.waitForTimeout(5000)
-    } catch (error) {
-      console.log("Save dialog interaction failed:");
-
-    }
+    await newPage.waitForLoadState('domcontentloaded');
+    //try {
+         await newPage.locator("#ssoAlreadyLoggedInUser", { timeout: 25000 })
+       console.log("sso dialog detected");
+    try { 
+ await newPage.locator("(//h1[normalize-space()='User Already Logged In'])[1]",{ state: 'visible',timeout:2000})
+  console.log("dialog detected");
+  //await newPage.getByRole('button', { name: 'Proceed' }).isenabled()
+         // await newPage.waitForSelector("//button[text()='Proceed']",{ state: 'visible',timeout:2000})
+   await newPage.getByRole('button', { name: 'Proceed' }).click()
+    console.log("Clicked on Proceed button");
+      await newPage.waitForTimeout(2000);
+ } catch (error) {
+   console.log("SSO dialog did not appear or interaction failed");
+ }
     await newPage.locator("//div[@class='branch-container']//span[@id='branch-name']").click({ timeout: 150000 });
     console.log("Clicked on branch name in new page");
     await newPage.fill("(//input[@id='_oj34-lov-dialog-body-filter-label-branchCode|input'])[1]", "100");
@@ -72,6 +76,7 @@ export default class ReatailDepositPage {
     // await newPage.locator("(//table[@role='application']//tr[@class='oj-table-body-row']//td)[1]").click();
     await newPage.getByText("100").click()
     console.log("clicked on Branch Code")
+     await newPage.waitForTimeout(2000);
     try {
 
       await newPage.waitForSelector("#alertDialogId_oj11", { timeout: 5000 });
@@ -85,7 +90,10 @@ export default class ReatailDepositPage {
     } catch (error) {
       console.log("No alert dialog found or already dismissed");
     }
-    await newPage.goto("https://lpbprodobmasvr01.lpb.co.ls:8006/app-shell/")
+    const newPageUrl=newPage.url();
+    await newPage.goto(newPageUrl)
+    await newPage.waitForTimeout(5000)
+   
   }
   async BranchSelection(BranchName: string) {
 
@@ -139,15 +147,30 @@ export default class ReatailDepositPage {
     await newPage.waitForTimeout(2000)
     await newPage.locator(this.elements.Sentbank).click()
     console.log('clicked on pending approval')
-    await newPage.locator("(//button)[29]").click();
+     await newPage.locator("(//button[@class='oj-button-button'])[12]").click();
+    await newPage.locator("//oj-button[@id='resubmitBtn']//button[@class='oj-button-button']").first().click();
     await newPage.getByRole('button', { name: 'Confirm' }).click();
     await expect(await newPage.locator(this.elements.successmsg).textContent()).toContain('Success')
     console.log('Successfully Saved')
     await newPage.locator(this.elements.okButton).click()
   }
+async closeScreen(){
+   try {
+      await newPage.locator("modalDialog3", { timeout: 5000 });
+      console.log("close dialog detected");
 
+      await newPage.locator(this.elements.NoBtn1).click()
+      console.log("Clicked on No button");
+      await newPage.waitForTimeout(5000)
+      console.log("close dialog closed");
+    } catch (error) {
+      console.log("close dialog not found");
+
+      //await newPage.locator(this.elements.NoBtn).click()
+    }
+}
   async approvefun(){
-    await newPage.locator(this.elements.approveBtn).click()
+    await newPage.locator(this.elements.approveBtn).first().click()
      await newPage.getByRole('button', { name: 'Ok' }).click();
      await expect(await newPage.locator(this.elements.successmsg).textContent()).toContain('Success')
     console.log('Successfully Saved')
@@ -165,8 +188,11 @@ export default class ReatailDepositPage {
   }
 
   async enterCustomerInterview(interview: string) {
+   
     await newPage.locator(this.elements.InformationBtn).click();
-    await newPage.locator(this.elements.customerInformation).fill(interview);
+     const udfno=await this.base.generateRandomNumber(4)
+   // await newPage.locator(this.elements.customerInformation).fill(interview);
+   await newPage.locator(this.elements.customerInformation).fill(udfno);
     console.log("Entered Customer Interview:", interview);
   }
 
@@ -215,7 +241,7 @@ export default class ReatailDepositPage {
       console.log("close dialog detected");
 
       await newPage.locator(this.elements.NoBtn).click()
-      console.log("Clicked on Proceed button");
+      console.log("Clicked on No button");
       await newPage.waitForTimeout(5000)
       console.log("close dialog closed");
     } catch (error) {

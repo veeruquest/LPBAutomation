@@ -1,15 +1,15 @@
 @TellerOperations
-Feature:Help Desk Feature
+Feature:Teller Operations Feature
 
    
-  @TellerOperations1 @UserCreationandAutherizationSuccess
+  @TellerOperations1 @UserCreationandAuthSuccess
     Scenario Outline: Validate User creation & Autherization process
-        Given User navigates to the application
-        When MAK user enters the username and password
-        And click on signin button
-        Then valdiate the home page tite as "<HomePageTitle>"
-        And enter the Branch number as "<BranchNumber>"
-       And user selects NextGen UI Dashboard and select Retail Operations 
+    Given User navigates to the application
+    When MAK user enters the username and password
+    And click on signin button
+    Then valdiate the home page tite as "<HomePageTitle>"
+    And enter the Branch number as "<BranchNumber>"
+    And user selects NextGen UI Dashboard and select Retail Operations 
      When user searches for in menu bar
     And user enters Login ID "<LoginID>"
     And user enters Username "<Username>"
@@ -53,17 +53,17 @@ Feature:Help Desk Feature
 
  Examples:
       | HomePageTitle                                       | BranchNumber | LoginID | Username    | HomeBranch | Status | StartDate       | Language | Branch1 | Role1           | Branch2 | Role2         | App1  | App2 | App3 | App4    | App5     |   Status    |
-    | Oracle Financial Services - ENG - Transaction Input | 999        | AUTO     | AUTOUSER      | 100        | Enable | SEP 26, 2025  | ENG      | 100     | OBBRN_MANAGER        |100  | OBBRN_BASE    | PLATO | REMO | OBPY | DEPOSIT | LOAN | Unauthorized  |
+    | Oracle Financial Services - ENG - Transaction Input | 999        | AUTO     | AUTOUSER      | 100        | Enable | OCT 26, 2025  | ENG      | 100     | OBBRN_MANAGER        |100  | OBBRN_BASE    | PLATO | REMO | OBPY | DEPOSIT | LOAN | Unauthorized  |
 
 
-  @TellerOperations3 @TellerToVaultAutherizationSuccess
+  @TellerOperations3 @VaultTellerCreationAndAuthSuccess
     Scenario Outline: Validate User creation & Autherization process
-        Given User navigates to the application
-        When MAK user enters the username and password
-        And click on signin button
-        Then valdiate the home page tite as "<HomePageTitle>"
-        And enter the Branch number as "<BranchNumber>"
-       And user selects NextGen UI Dashboard and select Retail Operations 
+    Given User navigates to the application
+    When MAK user enters the username and password
+    And click on signin button
+    Then valdiate the home page tite as "<HomePageTitle>"
+    And enter the Branch number as "<BranchNumber>"
+    And user selects NextGen UI Dashboard and select Retail Operations 
     When user searches for in menu bar
     And user enters Login ID "<LoginID>"
     And user enters Username "<Username>"
@@ -135,14 +135,14 @@ Feature:Help Desk Feature
 
  Examples:
       | HomePageTitle                                       | BranchNumber | LoginID | Username    | HomeBranch | status | StartDate       | Language | Branch1 | Role1           | Branch2 | Role2         | App1  | App2 | App3 | App4    | App5     |   Status    |SearchName      |    Status1        |TillType1| BranchCode | UserId   | TillType | CH_Currency | MinBal | MaxBal           | CL_Currency | MaxTxnAmt | AuthLimit     |Status1    |BranchName|
-    | Oracle Financial Services - ENG - Transaction Input | 999        | AUTO     | AUTOUSER      | 100        | Enable | SEP 26, 2025  | ENG      | 100     | OBBRN_MANAGER        |100  | OBBRN_BASE    | PLATO | REMO | OBPY | DEPOSIT | LOAN | Unauthorized  | Branch User Limits| Authorized       |Vault    |*.*       | AUTO26     | Till    | LSL          | 0.00    | 9,999,999,999.00| LSL    | 5,000.00   | 9,999,999.00    |Unauthorized| 100     |
+    | Oracle Financial Services - ENG - Transaction Input | 999        | AUTO     | AUTOUSER      | 100        | Enable | OCT 26, 2025  | ENG      | 100     | OBBRN_MANAGER        |100  | OBBRN_BASE    | PLATO | REMO | OBPY | DEPOSIT | LOAN | Unauthorized  | Branch User Limits| Authorized       |Vault    |*.*       | AUTO26     | Till    | LSL          | 0.00    | 9,999,999,999.00| LSL    | 5,000.00   | 9,999,999.00    |Unauthorized| 100     |
 
-   @TellerOperations2 @SupervisorUserCreationAutherizationSuccess
+   @TellerOperations2 @SupervisorUserCreationAndAuthSuccess
     Scenario Outline: Validate SupervisorUser creation & Autherization process
    Given User navigates to the application
    When MAK user enters the username and password
-    And click on signin button
-    Then valdiate the home page tite as "<HomePageTitle>"
+   And click on signin button
+  Then valdiate the home page tite as "<HomePageTitle>"
    And enter the Branch number as "<BranchNumber>"
    And user selects NextGen UI Dashboard and select Retail Operations 
     When user searches for in menu bar
@@ -190,17 +190,17 @@ Feature:Help Desk Feature
 
   Examples:
    | HomePageTitle                                       | BranchNumber | LoginID | Username      | HomeBranch    | Status | StartDate       | Language | Branch1     | Role1              | Branch2 | Role2         | App1  | App2 | App3 | App4    | App5 |
-    | Oracle Financial Services - ENG - Transaction Input | 999        | ADMIN02     | ADMINUSER2      | 100        | Enable | MAR 26, 2025  | ENG      | 100     | CASA_SUPERVISOR       |100  | OBBRN_BASE    | PLATO | REMO | OBPY | DEPOSIT | LOAN |
+    | Oracle Financial Services - ENG - Transaction Input | 999        | ADMIN02     | ADMINUSER2      | 100        | Enable | OCT 26, 2025  | ENG      | 100     | CASA_SUPERVISOR       |100  | OBBRN_BASE    | PLATO | REMO | OBPY | DEPOSIT | LOAN |
 
      @TellerOperations4 @TellerToVaultAutherizationSuccess
     Scenario Outline: Validate User creation & Autherization process
-        Given User navigates to the application
-        When MAK user enters the username and password
-        And click on signin button
-        Then valdiate the home page tite as "<HomePageTitle>"
-        And enter the Branch number as "<BranchNumber>"
-       And user selects NextGen UI Dashboard and select Retail Operations 
-       When user searches for in menu bar
+    Given User navigates to the application
+    When MAK user enters the username and password
+    And click on signin button
+    Then valdiate the home page tite as "<HomePageTitle>"
+    And enter the Branch number as "<BranchNumber>"
+    And user selects NextGen UI Dashboard and select Retail Operations 
+    When user searches for in menu bar
     And user enters Login ID "<LoginID>"
     And user enters Username "<Username>"
     And user selects Home Branch "<HomeBranch>"
@@ -239,9 +239,9 @@ Feature:Help Desk Feature
     Then user validates authorization success
      When user exits NewGenPage
      And user SignOff the application
-      When MAK user enters the username and password
+    When MAK user enters the username and password
     And MAK user login in the application
-     Then valdiate the home page tite as "<HomePageTitle>"
+    Then valdiate the home page tite as "<HomePageTitle>"
    And enter the Branch number as "<BranchNumber>"
     And user selects NextGen UI Dashboard and select Retail Operations 
     And user enters in Menu Bar "<SearchName>"
@@ -298,4 +298,4 @@ Feature:Help Desk Feature
 
  Examples:
       | HomePageTitle                                       | BranchNumber | LoginID | Username    | HomeBranch | status | StartDate       | Language | Branch1 | Role1           | Branch2 | Role2         | App1  | App2 | App3 | App4    | App5     |   Status    |SearchName      |    Status1        |TillType1| BranchCode | UserId   | TillType | CH_Currency | MinBal | MaxBal           | CL_Currency | MaxTxnAmt | AuthLimit     |Status1    |BranchName|
-    | Oracle Financial Services - ENG - Transaction Input | 999        | AUTO     | AUTOUSER      | 100        | Enable | SEP 26, 2025  | ENG      | 100     | OBBRN_MANAGER        |100  | OBBRN_BASE    | PLATO | REMO | OBPY | DEPOSIT | LOAN | Unauthorized  | Branch User Limits| Authorized       |Vault    |*.*       | AUTO26     | Till    | LSL          | 0.00    | 9,999,999,999.00| LSL    | 5,000.00   | 9,999,999.00    |Unauthorized| 100     |
+    | Oracle Financial Services - ENG - Transaction Input | 999        | AUTO     | AUTOUSER      | 100        | Enable |OCT 26, 2025  | ENG      | 100     | OBBRN_MANAGER        |100  | OBBRN_BASE    | PLATO | REMO | OBPY | DEPOSIT | LOAN | Unauthorized  | Branch User Limits| Authorized       |Vault    |*.*       | AUTO26     | Till    | LSL          | 0.00    | 9,999,999,999.00| LSL    | 5,000.00   | 9,999,999.00    |Unauthorized| 100     |

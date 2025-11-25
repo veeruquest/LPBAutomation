@@ -1,4 +1,4 @@
-@Reatail
+@ReatailAccountClassTransfer 
 Feature: Retail Account Class Transfer
 
 @Retail01 @AccountclasstransitionErrorscenarios  @tdAccountChange
@@ -95,27 +95,5 @@ Feature: Retail Account Class Transfer
   Examples:
    | HomePageTitle                                       | BranchNumber | FunctionName   | Account        | AccountClass |branchnumber|functionname|AutheirizationStatus|
     | Oracle Financial Services - ENG - Transaction Input | 100        | STDACTFR        | 1017048400015  | 210        | 999         |STSACTFR   |    U              |
-     # | Oracle Financial Services - ENG - Transaction Input | 100        | STDACTFR        | 1012512500033  | 215          |
-    # | Oracle Financial Services - ENG - Transaction Input | 100        | STDACTFR        | 1000118500014  | 132         |
-    # | Oracle Financial Services - ENG - Transaction Input | 100        | STDACTFR        | 1020984600014  | 132          |
-    # | Oracle Financial Services - ENG - Transaction Input | 100        | STDACTFR        | 1000037200016  | 132         |
-
-    @Retail04    @tdAccountChange
-    Scenario Outline: Scenario Outline name
-      Given User navigates to the application
-    When MAK user enters the username and password
-    And click on signin button
-    Then valdiate the home page tite as "<HomePageTitle>"
-     And enter the Branch number as "<BranchNumber>"
-    And enters the function name as "<functionname>" and click on search button
-    And select "<AutheirizationStatus>" from drop down  
-    And user Enter the Account Class "<AccountClass>"
-    And user Clicks on Search button
-    And user doubleclick on record
-     And Click on Authorize Button
-    Then validate the Authsuccess message
- Examples:
- | HomePageTitle                                       | BranchNumber | FunctionName   | Account        | AccountClass |branchnumber|functionname|AutheirizationStatus|
-    | Oracle Financial Services - ENG - Transaction Input | 100        | STDACTFR        | 1012512500033  | 132        | 999         |STSACTFR   |    U              |
-
-  
+     # | Oracle Financial Services - ENG - Transaction Input | 100        | STDACTFR        | 1012512500033  | 215          |999     | STSACTFR   |    U              |
+   

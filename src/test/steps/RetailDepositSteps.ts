@@ -46,6 +46,9 @@ When("user selects pending id",async function(){
 When("user accepts approval",async function(){
   await DepositPage.selectsentbackid()
 })
+When("user closes the screen",async function(){
+  await DepositPage.closeScreen()
+})
 When("user approves the pending approval",async function() {
   await DepositPage.approvefun()
 })

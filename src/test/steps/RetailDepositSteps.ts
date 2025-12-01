@@ -78,3 +78,27 @@ When("user clicks on Save", async function () {
    await DepositPage.NewGenDepositexit()
    
  })
+ When('user enters close withdrawal screen',async function(){
+ DepositPage = new RetailDepositPage(newPage);
+  await DepositPage.searchAcclosureScreen();
+ })
+ When('user enters close account number as {string}',async function(AccountNumber:string){
+  await DepositPage.entercloseAccountNumber(AccountNumber)
+ })
+ When('user clicks on IC Liquidate Button',async function(){
+  await DepositPage.clickonIcliquidate()
+  await DepositPage.clickonOkBtn()
+ })
+ When ('user clicks on close Submit Button',async function(){
+  await DepositPage.clickonclosesubmit()
+ })
+ When('user clicks on Query Tab',async function(){
+  await DepositPage.clickqueryTab()
+ })
+ When ('user enters Transaction Reference Number for AccountNumber as {string}',async function(AccountNumber:string){
+  await DepositPage.enterTransRefNo(AccountNumber)
+ })
+ When ('user selects By Cash Mode',async function(){
+  await DepositPage.closemode()
+  await DepositPage.submitclick()
+ })

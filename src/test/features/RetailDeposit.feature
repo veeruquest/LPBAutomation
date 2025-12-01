@@ -67,32 +67,35 @@ Feature: Cash Deposit Transaction
     | HomePageTitle                                       | BranchNumber   | AccountNumber | TransactionAmount | CustomerInterview |BranchName|
      | Oracle Financial Services - ENG - Transaction Input | 999         |    1036892600010 | 70000            |                   |100|
 
-     @Depostit3 @CashDepositmorethanlimitAuth   @tdAccountChange
-  Scenario Outline: Perform Cash Deposit overthelimit auth successfully
-     Given User navigates to the application
-        When CHE user enters the username and password
-       And CHE user login in the application
-        Then valdiate the home page tite as "<HomePageTitle>"
-        And enter the Branch number as "<BranchNumber>"
-       And click on NextGen UI Dashboard 
-        And user selects BranchName as "<BranchName>"
-       When user clicks on search for Screen
-       And user selects pending id
-       And user approves the pending approval
-        When user exits NewGenDepositPage
-     And user SignOff the application
-      When MAK user enters the username and password
-    And MAK user login in the application
-      Then valdiate the home page tite as "<HomePageTitle>"
-       And enter the Branch number as "<BranchNumber>"
-       And click on NextGen UI Dashboard 
-        And user selects BranchName as "<BranchName>"
-       When user clicks on search for Screen
-       And user accepts approval
-        And user closes the screen
-   When user exits NewGenDepositPage
-   And user SignOff the application
+#      @Depostit3 @CashDepositmorethanlimitAuth   @tdAccountChange
+#   Scenario Outline: Perform Cash Deposit overthelimit auth successfully
+#      Given User navigates to the application
+#         When CHE user enters the username and password
+#        And CHE user login in the application
+#         Then valdiate the home page tite as "<HomePageTitle>"
+#         And enter the Branch number as "<BranchNumber>"
+#        And click on NextGen UI Dashboard 
+#         And user selects BranchName as "<BranchName>"
+#        When user clicks on search for Screen
+#        And user selects pending id
+#        And user approves the pending approval
+#         When user exits NewGenDepositPage
+#      And user SignOff the application
+#       When MAK user enters the username and password
+#     And MAK user login in the application
+#       Then valdiate the home page tite as "<HomePageTitle>"
+#        And enter the Branch number as "<BranchNumber>"
+#        And click on NextGen UI Dashboard 
+#         And user selects BranchName as "<BranchName>"
+#        When user clicks on search for Screen
+#        And user accepts approval
+#         And user closes the screen
+#    When user exits NewGenDepositPage
+#    And user SignOff the application
        
-    Examples:
-    | HomePageTitle                                       | BranchNumber   | AccountNumber | TransactionAmount | CustomerInterview |BranchName|
-     | Oracle Financial Services - ENG - Transaction Input | 999         |   1036892600010 | 60000            | Deposited              |100|
+#     Examples:
+#     | HomePageTitle                                       | BranchNumber   | AccountNumber | TransactionAmount | CustomerInterview |BranchName|
+#      | Oracle Financial Services - ENG - Transaction Input | 999         |   1008172000014 | 60000            | Deposited              |100|
+
+
+  

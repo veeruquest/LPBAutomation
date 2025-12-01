@@ -2,7 +2,7 @@
   module.exports = {
      default: {
 
-        tags:"@ACStatement",
+        tags:"@ACClosure or @ACClosureAuth",
  
           formatOptions: {
  

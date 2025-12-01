@@ -3,6 +3,7 @@ import ReusableMethods from "../helper/wrapper/reusableMethods";
 import { exit } from "node:process";
 import { TIMEOUT } from "node:dns";
 import { timeout } from "../hooks/hooks";
+import { cli } from "winston/lib/winston/config";
 let pagePromise, loginId, UserName, value1;
 let newPage;
 export default class ReatailDepositPage {
@@ -15,12 +16,15 @@ export default class ReatailDepositPage {
     NextGenFrame: '//iframe[contains(@title, "Next Gen UI Dashboard")]',
     maintab: "//span[normalize-space()='Teller']",
     screenBtn: "//span[normalize-space()='Cash Deposit']",
+    AcclosureBtn:"//span[normalize-space()='Close Out Withdrawal']",
     screenBtn2:"//span[normalize-space()='Electronic Journal']",
     dropdown:"//a[@aria-label='expand']",
     pendingapproval:"//ul[@role='listbox']//li[6]//div",
     Sentbank:"//ul[@role='listbox']//li[3]//div",
     approveBtn:"//oj-button[@id='approveBtn']//button[@class='oj-button-button']",
     accountNumber: "//input[@id='txnAcc|input']",
+    closeacno:"//input[@id='accNo|input']",
+    icLiqBtn:"//span[@data-bind='text : labelsCommon.liquidate']",
     //transactionAmount: "(//input[@id='_oj105-input-text|input'])[1]",
     transactionAmount: "(//div[@class='oj-text-field-middle']//input)[23]",
     InformationBtn: "(//a[contains(@role,'button')])[23]",
@@ -28,6 +32,15 @@ export default class ReatailDepositPage {
     submitButton: "(//span[normalize-space()='Submit'])[1]",
     successmsg: "(//div[@class='oj-message-summary oj-message-title'])[1]",
     okButton: "(//span[text()='Ok'])[1]",
+    okcloseBtn:"(//button[@class='oj-button-button'])[2]",
+    oksuccess:"//span[@data-bind='text: labels.okLbl']",
+    samescreenYesBtn:"//oj-button[@on-click='[[stayOnScreen]]']//button[@class='oj-button-button']",
+    queryTab:"//span[@data-bind='text : labelsCommon.queryLbl']",
+    transRefBtn:"(//span[@slot='startIcon'])[10]",
+    bycashmode:"//ul//li//div[@aria-label='By Cash']",
+    expandBtn:"//div[@id='oj-combobox-choice-closeMode']//span[@class='oj-text-field-end']//a[@aria-label='expand']",
+    submitcloseBtn:"(//span[@id='wiz-custom-footer-next_oj61|text'])[1]",
+    submitclose1Btn:"(//span[@id='wiz-custom-footer-next_oj281|text'])[1]",
     confirmBtn:"(//button[@class='oj-button-button'])[1]",
     submitforApprove:"(//button[@class='oj-button-button'])[1]",
     adviceconf: "(//span[@data-bind='text: labels.no'][normalize-space()='No'])[1]",
@@ -128,6 +141,11 @@ export default class ReatailDepositPage {
     await newPage.locator(this.elements.maintab).click();
     await newPage.locator(this.elements.screenBtn).click();
   }
+   async searchAcclosureScreen() {
+
+    await newPage.locator(this.elements.maintab).click();
+    await newPage.locator(this.elements.AcclosureBtn).click();
+  }
    async searchScreen1() {
 
     await newPage.locator(this.elements.maintab).click();
@@ -181,6 +199,69 @@ async closeScreen(){
     await newPage.locator(this.elements.accountNumber).fill(accountNumber);
     console.log("Entered Account Number:", accountNumber);
   }
+  async entercloseAccountNumber(accountNumber: string) {
+    await newPage.locator(this.elements.closeacno).fill(accountNumber);
+    console.log("Entered Account Number:", accountNumber);
+     await newPage.waitForTimeout(5000)
+  }
+  async clickonIcliquidate(){
+    await newPage.click(this.elements.icLiqBtn)
+    console.log("Clicked on IC Liquidate Button");
+    await newPage.waitForTimeout(5000)
+    await newPage.click(this.elements.icLiqBtn)
+    console.log("Clicked on IC Liquidate Button");
+  }
+  async clickonOkBtn(){
+   // await newPage.locator(this.elements.okcloseBtn).click()
+    await newPage.getByRole('button', { name: 'OK' }).click();
+    console.log("Clicked on OK Button");
+  }
+  async clickonclosesubmit(){
+   // await newPage.getByText('Submit').nth(1).click()
+   // console.log("Clicked on close Submit Button");
+    await newPage.locator(this.elements.submitButton).click()
+    await newPage.waitForTimeout(2000)
+    console.log("Clicked on close Submit Button");
+     await newPage.locator(this.elements.oksuccess).click()
+     await newPage.waitForTimeout(2000)
+     await newPage.locator(this.elements.samescreenYesBtn).click()
+      await newPage.waitForTimeout(2000)
+  }
+  async clickqueryTab(){
+    await newPage.locator(this.elements.queryTab).click()
+  }
+  async enterTransRefNo(AccountNumber: string) {
+    await newPage.locator(this.elements.transRefBtn).click()
+    await newPage.getByText(AccountNumber).click()
+  }
+  async closemode(){
+    await newPage.locator(this.elements.expandBtn).click()
+    await newPage.locator(this.elements.bycashmode).click()
+    await newPage.waitForTimeout(10000)
+    // try{
+    //  await expect(await newPage.locator(this.elements.successmsg).textContent()).toContain('500')
+    // console.log('Server error')
+    // await newPage.locator(this.elements.okButton).click()
+    // }catch(error){
+    //   console.log('No server error')
+    // }
+     await newPage.locator(this.elements.submitButton).click()
+     console.log("clicked on submit Button")
+  }
+  async submitclick(){
+   
+     //await newPage.getByRole('button', { name: 'Submit' }).click();
+    
+     await newPage.getByRole('button', { name: 'Confirm' }).click();
+     await newPage.getByRole('button', { name: 'Submit For Approval' }).click();
+   console.log('clicked on button1')
+   await newPage.waitForTimeout(2000)
+    await expect(await newPage.locator(this.elements.successmsg).textContent()).toContain('Approval')
+    console.log('sent for Approval')
+    await newPage.locator(this.elements.okButton).click()
+   await newPage.getByRole('button', { name: 'No' }).click();
+  }
+  
 
   async enterTransactionAmount(amount: string) {
     await newPage.locator(this.elements.transactionAmount).fill(amount);

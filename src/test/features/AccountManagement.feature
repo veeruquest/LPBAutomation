@@ -137,7 +137,7 @@ Feature:Account Management Feature
 
     Examples:
     | HomePageTitle                                       | BranchNumber   | AccountNumber  |BranchName|
-     | Oracle Financial Services - ENG - Transaction Input | 999         |  1008206100018 |100|
+     | Oracle Financial Services - ENG - Transaction Input | 999         |  1000575700013 |100|
 
  @ACClosureAuth  
   Scenario Outline: Perform Acount Closure Authentication successfully
@@ -164,5 +164,5 @@ Feature:Account Management Feature
  
 
     Examples:
-    | HomePageTitle                                       | BranchNumber   | AccountNumber  |BranchName|
-     | Oracle Financial Services - ENG - Transaction Input | 999         |  1007963600011 |100|
+    | HomePageTitle                               | BranchNumber   | AccountNumber  |BranchName|
+     | Oracle Financial Services                   | 999         |  1007963600011    |100|

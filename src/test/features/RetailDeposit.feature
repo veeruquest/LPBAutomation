@@ -16,7 +16,7 @@ Feature: Cash Deposit Transaction
    And user provides Customer Interview "<CustomerInterview>"
    And user clicks on Save
    Then user validates successful confirmation
-   When user exits NewGenDepositPage
+    When user exits NewGenDepositPage
    And user SignOff the application
 
     Examples:

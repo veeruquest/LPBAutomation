@@ -68,17 +68,17 @@ export default class ReatailDepositPage {
     //try {
          await newPage.locator("#ssoAlreadyLoggedInUser", { timeout: 25000 })
        console.log("sso dialog detected");
-    try { 
- await newPage.locator("(//h1[normalize-space()='User Already Logged In'])[1]",{ state: 'visible',timeout:2000})
-  console.log("dialog detected");
-  //await newPage.getByRole('button', { name: 'Proceed' }).isenabled()
-         // await newPage.waitForSelector("//button[text()='Proceed']",{ state: 'visible',timeout:2000})
-   await newPage.getByRole('button', { name: 'Proceed' }).click()
-    console.log("Clicked on Proceed button");
-      await newPage.waitForTimeout(2000);
- } catch (error) {
-   console.log("SSO dialog did not appear or interaction failed");
- }
+//     try { 
+//  await newPage.locator("(//h1[normalize-space()='User Already Logged In'])[1]",{ state: 'visible',timeout:2000})
+//   console.log("dialog detected");
+//   //await newPage.getByRole('button', { name: 'Proceed' }).isenabled()
+//          // await newPage.waitForSelector("//button[text()='Proceed']",{ state: 'visible',timeout:2000})
+//    await newPage.getByRole('button', { name: 'Proceed' }).click()
+//     console.log("Clicked on Proceed button");
+//       await newPage.waitForTimeout(2000);
+//  } catch (error) {
+//    console.log("SSO dialog did not appear or interaction failed");
+//  }
     await newPage.locator("//div[@class='branch-container']//span[@id='branch-name']").click({ timeout: 150000 });
     console.log("Clicked on branch name in new page");
     await newPage.fill("(//input[@id='_oj34-lov-dialog-body-filter-label-branchCode|input'])[1]", "100");

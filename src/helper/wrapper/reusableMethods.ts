@@ -64,10 +64,22 @@ export default class ReusableMethods {
     const month = String(currentDate.getMonth() + 1).padStart(2, '0');
     const day = String(currentDate.getDate()).padStart(2, '0');
     const year = String(currentDate.getFullYear());
-    const formattedCurrentDate = `${month}/${day}/${year}`;
-
+   // const formattedCurrentDate = `${month}/${day}/${year}`;
+    const formattedCurrentDate = `${year}-${month}-${day}`;
     console.log(formattedCurrentDate);
     return formattedCurrentDate;
+  }
+
+   async generatefutureDate(days){
+   const currentDate = new Date();
+    const futureDate = new Date(currentDate);
+    futureDate.setDate(currentDate.getDate() + days);
+    const month = String(futureDate.getMonth() + 1).padStart(2, '0');
+    const day = String(futureDate.getDate()).padStart(2, '0');
+    const year = String(futureDate.getFullYear());
+    const formattedfutureDate = `${year}-${month}-${day}`;
+    console.log(formattedfutureDate);
+    return formattedfutureDate;
   }
 
   async getTheFutureDate(months) {
@@ -91,7 +103,7 @@ export default class ReusableMethods {
     const month = String(pastDate.getMonth() + 1);
     const day = String(pastDate.getDate());
     const year = String(pastDate.getFullYear());
-    const formattedpastDate = `${month}/${day}/${year}`;
+    const formattedpastDate = `${year}-${month}-${day}`;
     console.log(formattedpastDate);
     return formattedpastDate;
   }
@@ -107,6 +119,7 @@ export default class ReusableMethods {
     console.log(formattedPastDate);
     return formattedPastDate;
   }
+ 
 
   // Generate a future date with the specified number of days in the mmddyy format
   generateFutureDate(locator, days) {

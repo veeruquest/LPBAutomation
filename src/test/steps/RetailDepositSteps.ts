@@ -46,6 +46,9 @@ When("user selects pending id",async function(){
 When("user accepts approval",async function(){
   await DepositPage.selectsentbackid()
 })
+When("user closes the screen",async function(){
+  await DepositPage.closeScreen()
+})
 When("user approves the pending approval",async function() {
   await DepositPage.approvefun()
 })
@@ -74,4 +77,32 @@ When("user clicks on Save", async function () {
  When('user exits NewGenDepositPage',async function () {
    await DepositPage.NewGenDepositexit()
    
+ })
+ When('user enters close withdrawal screen',async function(){
+ DepositPage = new RetailDepositPage(newPage);
+  await DepositPage.searchAcclosureScreen();
+ })
+ When('user enters close account number as {string}',async function(AccountNumber:string){
+  await DepositPage.entercloseAccountNumber(AccountNumber)
+ })
+ When('user clicks on IC Liquidate Button',async function(){
+  await DepositPage.clickonIcliquidate()
+  await DepositPage.clickonOkBtn()
+ })
+ When ('user clicks on close Submit Button',async function(){
+  await DepositPage.clickonclosesubmit()
+ })
+ When('user clicks on Query Tab',async function(){
+  await DepositPage.clickqueryTab()
+ })
+ When ('user enters Transaction Reference Number for AccountNumber as {string}',async function(AccountNumber:string){
+  await DepositPage.enterTransRefNo(AccountNumber)
+ })
+ When ('user selects By Cash Mode',async function(){
+  await DepositPage.closemode()
+  await DepositPage.submitclick()
+ })
+When ('user selects By Account Mode',async function(){
+  await DepositPage.closemode1()
+  await DepositPage.submitclick()
  })

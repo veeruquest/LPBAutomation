@@ -4,7 +4,7 @@
   @ChangeTDRate
   Scenario Outline: Maker changes the TDRate
   Given User navigates to the application
-    When user enters the username and password
+    When MAK user enters the username and password
         And click on signin button
     # Then validate the home page title as "<HomePageTitle>"
         And enter the Branch number as "<BranchNumber>"
@@ -47,7 +47,7 @@
    @TermDepositAuthorization
  Scenario Outline: Checker authorizes the Term Deposit Account
      Given User navigates to the application
-     When user enters the username and password using cheker credentials
+     When CHE user enters the username and password
      And click on signin button as cheker
      And enter the Branch number as "<BranchNumber>"
      When enters the function name as "<FunctionName>" and click on search button
@@ -67,7 +67,7 @@
      @ChangeTDFrate
 Scenario Outline: Maker changes the TDF rate
     Given User navigates to the application
-    When user enters the username and password
+    When MAK user enters the username and password
     And click on signin button
     # Then validate the home page title as "<HomePageTitle>"
     And enter the Branch number as "<BranchNumber>"
@@ -110,7 +110,7 @@ Scenario Outline: Maker changes the TDF rate
   @TermDepositAuthorization
    Scenario Outline: Checker authorizes the Term Deposit Account
     Given User navigates to the application
-    When user enters the username and password using cheker credentials
+    When CHE user enters the username and password
     And click on signin button as cheker
     And enter the Branch number as "<BranchNumber>"
     When enters the function name as "<FunctionName>" and click on search button
@@ -131,7 +131,7 @@ Scenario Outline: Maker changes the TDF rate
        @ChangeTDMrate
     Scenario Outline: Maker changes the TDM rate
     Given User navigates to the application
-    When user enters the username and password
+    When MAK user enters the username and password
     And click on signin button
     # Then validate the home page title as "<HomePageTitle>"
     And enter the Branch number as "<BranchNumber>"
@@ -175,7 +175,7 @@ Scenario Outline: Maker changes the TDF rate
    @TermDepositAuthorization
    Scenario Outline: Checker authorizes the Term Deposit Account
     Given User navigates to the application
-    When user enters the username and password using cheker credentials
+    When CHE user enters the username and password
     And click on signin button as cheker
     And enter the Branch number as "<BranchNumber>"
     When enters the function name as "<FunctionName>" and click on search button
@@ -195,7 +195,7 @@ Scenario Outline: Maker changes the TDF rate
        @ChangeRDrate
      Scenario Outline: Maker changes the RD rate
     Given User navigates to the application
-    When user enters the username and password
+    When MAK user enters the username and password
     And click on signin button
     # Then validate the home page title as "<HomePageTitle>"
     And enter the Branch number as "<BranchNumber>"
@@ -238,7 +238,7 @@ Scenario Outline: Maker changes the TDF rate
    @TermDepositAuthorization
    Scenario Outline: Checker authorizes the Term Deposit Account
    Given User navigates to the application
-   When user enters the username and password using cheker credentials
+   When CHE user enters the username and password
    And click on signin button as cheker
    And enter the Branch number as "<BranchNumber>"
    When enters the function name as "<FunctionName>" and click on search button

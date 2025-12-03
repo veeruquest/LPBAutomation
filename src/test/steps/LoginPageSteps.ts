@@ -38,6 +38,7 @@ When(`MAK user enters the username and password`, async function () {
 });
 
 
+
 When(`CHE user enters the username and password`, async function () {
     loginPageloc = new loginPage(fixture.page);
     fixture.logger.info("Enter the user name and Password");

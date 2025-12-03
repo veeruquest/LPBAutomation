@@ -4,7 +4,7 @@
 # Set1    @Accnum, @Txnamt
   Scenario Outline: Withdrawals - till limit
   Given User navigates to the application
-    When user enters the username and password
+    When MAK user enters the username and password
         And click on signin button
         And User selects the NextGen tab
         And Clicks on Retail Operations
@@ -24,7 +24,7 @@
  #  Basic withdrawals with fee verification 
   Scenario Outline: Maker withdraws the amount
   Given User navigates to the application
-    When user enters the username and password
+    When MAK user enters the username and password
         And click on signin button
         And User selects the NextGen tab
         And Clicks on Retail Operations
@@ -45,7 +45,7 @@
 #   #  Amount withdrawal above the transaction limit
    Scenario Outline: Maker withdraws the amount
    Given User navigates to the application
-    When user enters the username and password
+    When MAK user enters the username and password
         And click on signin button
         And User selects the NextGen tab
         And Clicks on Retail Operations
@@ -63,7 +63,7 @@
 
     Scenario Outline: Cheker Approves the Transaction
         Given User navigates to the application
-        When user enters the username and password using cheker credentials
+        When CHE user enters the username and password
         And click on signin button as cheker
         And User selects the NextGen tab
         And Clicks on Retail Operations
@@ -78,7 +78,7 @@
 
     Scenario Outline: Maker Approves the Transaction
         Given User navigates to the application
-        When user enters the username and password
+        When MAK user enters the username and password
         And click on signin button
         And User selects the NextGen tab
         And Clicks on Retail Operations
@@ -97,7 +97,7 @@
     #  Withdrawal with Insufficient available balance.
       Scenario Outline: Blocked Account Scenario
       Given User navigates to the application
-      When user enters the username and password
+      When MAK user enters the username and password
         And click on signin button
         And User selects the NextGen tab
         And Clicks on Retail Operations

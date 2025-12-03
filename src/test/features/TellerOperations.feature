@@ -1,4 +1,4 @@
-@TellerOperations
+@TellerOperations @NextGenUI
 Feature:Teller Operations Feature
 
    

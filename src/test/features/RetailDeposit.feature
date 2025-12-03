@@ -1,4 +1,4 @@
- @CashDeposit
+ @CashDeposit @NextGenUI
 Feature: Cash Deposit Transaction
 
 @Depostit1 @CashDepositwithinlimit  @tdAccountChange

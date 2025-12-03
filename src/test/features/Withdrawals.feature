@@ -1,7 +1,7 @@
- @Withdrawals
+ @Withdrawals @NextGenUI
  Feature: Withdrawal of Amount - Teller
 
-# Set1    @Accnum, @Txnamt
+@Set1    @Accnum @Txnamt
   Scenario Outline: Withdrawals - till limit
   Given User navigates to the application
     When MAK user enters the username and password
@@ -20,7 +20,7 @@
      | BranchCode  |  Accnum          | Txnamt | custinfo |
      | 100         | 1025603300019    | 23000   | Withdrawal    |
 
-  # Set 2 @Accnum, @Txnamt, @custinfo
+  @Set2 @Accnum @Txnamt @custinfo
  #  Basic withdrawals with fee verification 
   Scenario Outline: Maker withdraws the amount
   Given User navigates to the application
@@ -41,8 +41,8 @@
      | BranchCode  |  Accnum          | Txnamt | custinfo |
      | 100         | 1025603300019    | 10   | Withdrawal    |
 
-#   #  set 3 @Accnum, @Txnamt
-#   #  Amount withdrawal above the transaction limit
+@set3 @Accnum @Txnamt
+##  Amount withdrawal above the transaction limit
    Scenario Outline: Maker withdraws the amount
    Given User navigates to the application
     When MAK user enters the username and password
@@ -93,7 +93,7 @@
      | BranchCode  |
      | 100         |
 
-    #  Set 4 @Accnum, @Txnamt
+      @Set4 @Accnum @Txnamt
     #  Withdrawal with Insufficient available balance.
       Scenario Outline: Blocked Account Scenario
       Given User navigates to the application

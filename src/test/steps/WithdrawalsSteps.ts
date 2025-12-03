@@ -21,15 +21,7 @@ When("changes the branch code as {string}", async function(brcode : string)
   await WDPage.clickchangebranch(brcode);
 });
 
-When("selects Open Branch Batch Option", async function(){
-  const WDPage = new WithdrawalsPage(fixture.page);
-  await WDPage.clickopenbranchbatch();
-});
 
-When("selects Open Teller Batch Option", async function(){
-  const WDPage = new WithdrawalsPage(fixture.page);
-  await WDPage.clickopentellerbatch();
-});
 
 When("selects Cash Withdrawal in the Teller Menu Bar", async function(){
   const WDPage = new WithdrawalsPage(fixture.page);

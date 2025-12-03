@@ -10,8 +10,6 @@
         And Clicks on Retail Operations
         And changes the branch code as "<BranchCode>"
         # And clicks on Tellertab
-        And selects Open Branch Batch Option
-        And selects Open Teller Batch Option
         And selects Cash Withdrawal in the Teller Menu Bar
         And enters the Account number "<Accnum>"
         And enters the Transaction Amount "<Txnamt>"
@@ -31,8 +29,6 @@
         And User selects the NextGen tab
         And Clicks on Retail Operations
         And changes the branch code as "<BranchCode>"
-        And selects Open Branch Batch Option
-        And selects Open Teller Batch Option
         And selects Cash Withdrawal in the Teller Menu Bar
         And click on Charge details button
         Then No data to display message should be shown
@@ -54,8 +50,6 @@
         And User selects the NextGen tab
         And Clicks on Retail Operations
         And changes the branch code as "<BranchCode>"
-        And selects Open Branch Batch Option
-        And selects Open Teller Batch Option
         And selects Cash Withdrawal in the Teller Menu Bar
         And enters the Account number "<Accnum>"
         And enters the Transaction Amount "<Txnamt>"
@@ -74,8 +68,6 @@
         And User selects the NextGen tab
         And Clicks on Retail Operations
         And changes the branch code as "<BranchCode>"
-        And selects Open Branch Batch Option
-        And selects Open Teller Batch Option
         And selects Electronic Journal in the Teller Menu Bar
         And Fetches the transactions that have status as Pending Approval
         And approves the transaction
@@ -91,8 +83,6 @@
         And User selects the NextGen tab
         And Clicks on Retail Operations
         And changes the branch code as "<BranchCode>"
-        And selects Open Branch Batch Option
-        And selects Open Teller Batch Option
         And selects Electronic Journal in the Teller Menu Bar
         And selects Sent Back in the Transaction Status
         And Clicks on the Fetch button
@@ -113,8 +103,8 @@
         And Clicks on Retail Operations
         And changes the branch code as "<BranchCode>"
         # And clicks on Tellertab
-        And selects Open Branch Batch Option
-        And selects Open Teller Batch Option
+        # And selects Open Branch Batch Option
+        # And selects Open Teller Batch Option
         And selects Cash Withdrawal in the Teller Menu Bar
         And enters the Account number "<Accnum>"
         And enters the Transaction Amount "<Txnamt>"

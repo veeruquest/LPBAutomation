@@ -124,43 +124,7 @@ async clickchangebranch(code: string) {
  await targetPage.waitForTimeout(20000);
 }
 
-async clickopenbranchbatch() {
-await targetPage.waitForSelector(this.Elements.Tellertab, {state : 'visible', timeout : 5000});
-await targetPage.locator(this.Elements.Tellertab).click();
-await targetPage.waitForTimeout(40000);
-await targetPage.waitForSelector(this.Elements.OpenBrBtch, { state: 'visible', timeout: 10000 });
-const item = targetPage.locator(this.Elements.OpenBrBtch).first();
-await item.scrollIntoViewIfNeeded();
-await item.click();
-await targetPage.waitForTimeout(2000);
-console.log("selected open branch batch");
-await targetPage.waitForSelector(this.Elements.branchbtchokbtn, {state : 'visible', timeout : 85000});
-await targetPage.locator(this.Elements.branchbtchokbtn).click();
-await targetPage.waitForTimeout(2000);
-}
 
-async clickopentellerbatch(){
- await targetPage.waitForSelector(this.Elements.Tellertab, {state : 'visible', timeout : 15000});
- await targetPage.locator(this.Elements.Tellertab).click();
- await targetPage.waitForTimeout(20000);
- await targetPage.waitForSelector(this.Elements.OpenTellerBtch, {state : 'visible', timeout : 15000});
- await targetPage.locator(this.Elements.OpenTellerBtch).click();
- await targetPage.waitForTimeout(10000);
-if (await targetPage.getByRole('button', { name: 'Submit' }).isVisible().catch(() => false)) {
-
-    // FIRST TIME LOGIN
-    await targetPage.getByRole('button', { name: 'Submit' }).click();
-    await targetPage.getByText('Transaction Completed Successfully').waitFor();
-    await targetPage.getByRole('button', { name: 'OK' }).click();
-    await targetPage.waitForTimeout(5000);
-
-} else {
-
-    // ALREADY OPENED
-    await targetPage.locator(this.Elements.TellerBatchError).click();
-    await targetPage.waitForTimeout(5000);
-}
-}
 
 async clickCashWithdrawal(){
  await targetPage.waitForSelector(this.Elements.Tellertab, {state : 'visible', timeout : 15000});

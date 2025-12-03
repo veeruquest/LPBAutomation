@@ -95,7 +95,7 @@ When('Click on Execute Query', async function () {
           await bookLoan.executeQueryBtn();
          });
 
- When('Click on Authorize', async function () {
+ When('system Clicks Authorize', async function () {
            await bookLoan.authorizeBtn();
          });
 

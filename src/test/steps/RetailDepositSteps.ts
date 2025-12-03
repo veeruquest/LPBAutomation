@@ -102,3 +102,7 @@ When("user clicks on Save", async function () {
   await DepositPage.closemode()
   await DepositPage.submitclick()
  })
+When ('user selects By Account Mode',async function(){
+  await DepositPage.closemode1()
+  await DepositPage.submitclick()
+ })

@@ -44,7 +44,7 @@ Feature: Booking a Loan
              And click on Enter Query
              And enter loan account number "<AccountNumber>"
              And Click on Execute Query
-             And Click on Authorize
+             And system Clicks Authorize
              And Click on Autorize1
              Then System display success message with ok option
 

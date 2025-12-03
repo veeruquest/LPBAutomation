@@ -40,6 +40,7 @@ export default class ReatailDepositPage {
     queryTab:"//span[@data-bind='text : labelsCommon.queryLbl']",
     transRefBtn:"(//span[@slot='startIcon'])[10]",
     bycashmode:"//ul//li//div[@aria-label='By Cash']",
+    byaccountmode:"//ul//li//div[@aria-label='By Transfer']",
     expandBtn:"//div[@id='oj-combobox-choice-closeMode']//span[@class='oj-text-field-end']//a[@aria-label='expand']",
     submitcloseBtn:"(//span[@id='wiz-custom-footer-next_oj61|text'])[1]",
     submitclose1Btn:"(//span[@id='wiz-custom-footer-next_oj281|text'])[1]",
@@ -234,6 +235,14 @@ async closeScreen(){
     // }catch(error){
     //   console.log('No server error')
     // }
+     await newPage.locator(this.elements.submitButton).click()
+     console.log("clicked on submit Button")
+  }
+   async closemode1(){
+    await newPage.locator(this.elements.expandBtn).click()
+    await newPage.locator(this.elements.byaccountmode).click()
+    await newPage.waitForTimeout(10000)
+   
      await newPage.locator(this.elements.submitButton).click()
      console.log("clicked on submit Button")
   }

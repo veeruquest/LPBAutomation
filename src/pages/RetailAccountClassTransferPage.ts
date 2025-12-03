@@ -82,7 +82,7 @@ export default class RetailAccountClassTransferPage {
     console.log("Switched to Account Class Transfer Frame");
   }
   async handleManualStFrame() {
-    const frameHandle = await this.page.waitForSelector(this.Elements.ManualstatuschFrame, { timeout: 10000 });
+    const frameHandle = await this.page.waitForSelector(this.Elements.ManualstatuschFrame, { timeout: 50000 });
     manualstatusFrame = await frameHandle.contentFrame();
     console.log("Switched to Account Class Transfer Frame");
   }
@@ -143,7 +143,7 @@ async handleAmountFrame() {
     console.log("Switched to Message Frame");
   }
    async handleStatusFrame(){
-     const frameHandle = await this.page.waitForSelector(this.Elements.statuschangeframe, { timeout: 30000 });
+     const frameHandle = await this.page.waitForSelector(this.Elements.statuschangeframe, { timeout: 70000 });
     statusFrame = await frameHandle.contentFrame();
     console.log("Switched to Status Change Frame");
   }

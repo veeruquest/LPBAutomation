@@ -111,13 +111,13 @@ Feature:Account Management Feature
 
  Examples:
     | HomePageTitle                                       | BranchNumber | FunctionName   | Account        | branchnumber|Success Message|FunctionName1|FunctionName2| status     |
-    | Oracle Financial Services - ENG - Transaction Input | 100        | STDSTCHN      | 1018009000021 |   999         |  Success      |    CSDVERFY    |STSSTCHN    | Unauthorized |
+    | Oracle Financial Services - ENG - Transaction Input | 100        | STDSTCHN      | 1029565800016 |   999         |  Success      |    CSDVERFY    |STSSTCHN    | Unauthorized |
    # | Oracle Financial Services - ENG - Transaction Input | 100        | STDSTCHN      | 1015125500016 |   999         |  Success      |    CSDVERFY    |STSSTCHN    | Unauthorized |
    #  | Oracle Financial Services - ENG - Transaction Input | 100        | STDSTCHN      | 1017941400028 |   999         |  Success      |    CSDVERFY    |STSSTCHN    | Unauthorized |
 
 
- @ACClosure  @tdAccountChange
-  Scenario Outline: Perform Acount Closure successfully
+ @ACClosure1  @tdAccountChange
+  Scenario Outline: Perform Acount By Cash Mode Closure successfully
      Given User navigates to the application
    When MAK user enters the username and password
    And click on signin button
@@ -139,8 +139,60 @@ Feature:Account Management Feature
     | HomePageTitle                                       | BranchNumber   | AccountNumber  |BranchName|
      | Oracle Financial Services - ENG - Transaction Input | 999         |  1000575700013 |100|
 
- @ACClosureAuth  
-  Scenario Outline: Perform Acount Closure Authentication successfully
+    
+ @ACClosureAuth1  
+  Scenario Outline: Perform Acount Closure By Cash Mode Authentication successfully
+   Given User navigates to the application
+  And CHE user enters the username and password
+  And click on signin button
+  And valdiate the home page tite as "<HomePageTitle>"
+   And enter the Branch number as "<BranchNumber>"
+   And click on NextGen UI Dashboard 
+   And user selects BranchName as "<BranchName>"
+   When user clicks on search for Screen
+   And user selects pending id
+   And user approves the pending approval
+   When user exits NewGenDepositPage
+   And user SignOff the application
+   When MAK user enters the username and password
+   And MAK user login in the application
+   Then valdiate the home page tite as "<HomePageTitle>"
+   And enter the Branch number as "<BranchNumber>"
+   And click on NextGen UI Dashboard 
+   And user selects BranchName as "<BranchName>"
+   When user clicks on search for Screen
+   And user accepts approval
+ 
+
+    Examples:
+    | HomePageTitle                               | BranchNumber   | AccountNumber  |BranchName|
+     | Oracle Financial Services                   | 999         |  1000575700013    |100|
+
+ @ACClosure2  @tdAccountChange
+  Scenario Outline: Perform Acount Closure By Account Mode successfully
+     Given User navigates to the application
+   When MAK user enters the username and password
+   And click on signin button
+   Then valdiate the home page tite as "<HomePageTitle>"
+   And enter the Branch number as "<BranchNumber>"
+   And click on NextGen UI Dashboard 
+   And user selects BranchName as "<BranchName>"
+   When user enters close withdrawal screen
+   When user enters close account number as "<AccountNumber>"
+    And user clicks on IC Liquidate Button
+    And user clicks on close Submit Button
+    And user clicks on Query Tab
+    And user enters Transaction Reference Number for AccountNumber as "<AccountNumber>"
+    And user selects By Account Mode
+    When user exits NewGenDepositPage
+   
+
+    Examples:
+    | HomePageTitle                                       | BranchNumber   | AccountNumber  |BranchName|
+     | Oracle Financial Services - ENG - Transaction Input | 999         |   1007963600011  |100|
+
+@ACClosureAuth2  
+  Scenario Outline: Perform Acount Closure By Account Mode Authentication successfully
    Given User navigates to the application
   And CHE user enters the username and password
   And click on signin button

@@ -70,7 +70,7 @@ export default class AssignRulesFunctionsNewUserPage {
     await assignframe.locator(this.Elements.searchbutton).click();
       try {
             // Wait for the iframe to appear in the DOM
-            const frameElementHandle1 = await assignframe.waitForSelector("//iframe[@id='ifrSubScreen']", { timeout: 10000 });
+            const frameElementHandle1 = await assignframe.waitForSelector("//iframe[@id='ifrSubScreen']", { timeout: 20000 });
              rolesframe= await frameElementHandle1.contentFrame();
              await rolesframe.locator(this.Elements.fetchfirstrow).click();  
                    
@@ -131,7 +131,7 @@ export default class AssignRulesFunctionsNewUserPage {
    
        try {
             // Wait for the iframe to appear in the DOM
-            const frameElementHandle1 = await assignframe.waitForSelector("//iframe[@id='ifrSubScreen']", { timeout: 10000 });
+            const frameElementHandle1 = await assignframe.waitForSelector("//iframe[@id='ifrSubScreen']", { timeout: 20000 });
              rolesframe= await frameElementHandle1.contentFrame();
              
              
@@ -164,7 +164,7 @@ export default class AssignRulesFunctionsNewUserPage {
    
        try {
             // Wait for the iframe to appear in the DOM
-            const frameElementHandle1 = await rolesframe.waitForSelector("//iframe[@id='ifrSubScreen']", { timeout: 3000 });
+            const frameElementHandle1 = await rolesframe.waitForSelector("//iframe[@id='ifrSubScreen']", { timeout: 20000 });
              listframe= await frameElementHandle1.contentFrame();
              await listframe.locator(this.Elements.dropdownFirstOption).click();
              

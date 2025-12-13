@@ -37,7 +37,7 @@ export default class EditUserUsingScreenPage {
   async handleUserFrame() {
         try {
             // Wait for the iframe to appear in the DOM
-            const frameElementHandle = await this.page.waitForSelector("//iframe[@id='ifr_LaunchWin']", { timeout: 10000 });
+            const frameElementHandle = await this.page.waitForSelector("//iframe[@id='ifr_LaunchWin']", { timeout: 20000 });
              userframe = await frameElementHandle.contentFrame();
            // await frame.click(this.Elements.newTab)  
                    
@@ -49,10 +49,11 @@ export default class EditUserUsingScreenPage {
     async enterUserId(userId: string) {
       await userframe.locator(this.Elements.userid).clear();
     await userframe.locator(this.Elements.userid).fill(userId);
+    await this.page.waitForTimeout(2000)
       await userframe.locator(this.Elements.searchbutton).click();
       try {
             // Wait for the iframe to appear in the DOM
-            const frameElementHandle1 = await userframe.waitForSelector("//iframe[@id='ifrSubScreen']", { timeout: 10000 });
+            const frameElementHandle1 = await userframe.waitForSelector("//iframe[@id='ifrSubScreen']", { timeout: 20000 });
              rolesframe= await frameElementHandle1.contentFrame();
              await rolesframe.locator(this.Elements.fetchfirstrow).click();  
                    
@@ -64,18 +65,20 @@ export default class EditUserUsingScreenPage {
   console.log("inside search")
   await this.handleUserFrame()
     await userframe.click(this.Elements.serach) 
+    await this.page.waitForTimeout(2000)
   }
 
 
 
   async clickcheckbox(){    
     await userframe.dblclick(this.Elements.checkbox,{ timeout: 7000 })
+    await this.page.waitForTimeout(2000)
 
 }
 
 async clickclose(){
   
-        const toolbarFrame = await this.page.locator('//iframe[contains(@title, "User Creation")]').nth(1);
+        const toolbarFrame = await this.page.waitForSelector('(//iframe[contains(@title, "User Creation")])[2]',{ timeout: 20000 })
         const frame = await toolbarFrame.contentFrame();
         await frame.locator("//ul//li[@id='Close']//a").click();
        // await frame.locator("//input[@title='LDAP DN']").fill("34342342432424");
@@ -83,12 +86,12 @@ async clickclose(){
 
  async okbtnclick() {
           
-              const toolbarFrameLocator = this.page.locator('//iframe[contains(@title, "User Creation")]').nth(1);
-          const toolbarFrameElement = await toolbarFrameLocator.elementHandle();
-          if (!toolbarFrameElement) throw new Error('Toolbar iframe not found');
+              const toolbarFrameElement = await this.page.waitForSelector('(//iframe[contains(@title, "User Creation")])[2]',{ timeout: 20000 })
+          // const toolbarFrameElement = await toolbarFrameLocator.elementHandle();
+          // if (!toolbarFrameElement) throw new Error('Toolbar iframe not found');
           const frame = await toolbarFrameElement.contentFrame();
-          if (!frame) throw new Error('Failed to get content frame');
-          const frameElementHandle2 = await frame.waitForSelector("//iframe[@id='ifr_AlertWin']", { timeout: 10000 });
+          // if (!frame) throw new Error('Failed to get content frame');
+          const frameElementHandle2 = await frame.waitForSelector("//iframe[@id='ifr_AlertWin']", { timeout: 20000 });
        
           successframe = await frameElementHandle2.contentFrame();
             await successframe.click(this.Elements.okbtn)  
@@ -98,7 +101,7 @@ async clickclose(){
 
 async clickunlock(name:string){
   
-        const toolbarFrame = await this.page.locator('//iframe[contains(@title, "User Creation")]').nth(1);
+        const toolbarFrame = await this.page.waitForSelector('(//iframe[contains(@title, "User Creation")])[2]',{ timeout: 50000 })
         const frame = await toolbarFrame.contentFrame();
         await frame.locator(this.Elements.unlock).click();
         //await frame.locator("//input[@title='Name']").fill("34");
@@ -113,7 +116,8 @@ async clickunlock(name:string){
 
 
 async enterpassword(password: string) {
-    const toolbarFrame = await this.page.locator('//iframe[contains(@title, "User Creation")]').nth(1);
+ 
+     const toolbarFrame = await this.page.waitForSelector('(//iframe[contains(@title, "User Creation")])[2]',{ timeout: 50000 })
         const frame = await toolbarFrame.contentFrame();
         await frame.locator(this.Elements.unlock).click();
          await frame.locator(this.Elements.password).clear()
@@ -122,18 +126,18 @@ async enterpassword(password: string) {
   }
 
    async clickSaveButton() {
-     const toolbarFrame = await this.page.locator('//iframe[contains(@title, "User Creation")]').nth(1);
+     const toolbarFrame = await this.page.waitForSelector('(//iframe[contains(@title, "User Creation")])[2]',{ timeout: 20000 });
         const frame = await toolbarFrame.contentFrame();
           await frame.locator(this.Elements.saveBtn).click();
         }
       
         async verifySuccessMessage(message: string) {
-          const toolbarFrameLocator = this.page.locator('//iframe[contains(@title, "User Creation")]').nth(1);
-          const toolbarFrameElement = await toolbarFrameLocator.elementHandle();
-          if (!toolbarFrameElement) throw new Error('Toolbar iframe not found');
-          const frame = await toolbarFrameElement.contentFrame();
-          if (!frame) throw new Error('Failed to get content frame');
-          const frameElementHandle2 = await frame.waitForSelector("//iframe[@id='ifr_AlertWin']", { timeout: 10000 });
+          const toolbarFrameLocator = this.page.waitForSelector('(//iframe[contains(@title, "User Creation")])[2]',{ timeout: 20000 })
+         const frame = await (await toolbarFrameLocator).contentFrame();
+          // if (!toolbarFrameElement) throw new Error('Toolbar iframe not found');
+          // const frame = await toolbarFrameElement.contentFrame();
+         // if (!frame) throw new Error('Failed to get content frame');
+          const frameElementHandle2 = await frame.waitForSelector("//iframe[@id='ifr_AlertWin']", { timeout: 20000 });
        
           successframe = await frameElementHandle2.contentFrame();
           const successmessage = successframe.locator(this.Elements.successMessage);

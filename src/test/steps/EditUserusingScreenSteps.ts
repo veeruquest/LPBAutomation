@@ -28,12 +28,14 @@ When("User enters UserID as {string}",async function(userId){
        fixture.logger.info("Entering User ID");
     await AuthPageloc.handleUserFrame();
     await AuthPageloc.enterUserId(userId);
+    
 })
 When("User Clicks on Searh button",async function(){
      AuthPageloc = new EditUserUsingScreenPage(fixture.page);
     fixture.logger.info("clicks on Search button");
     // await AuthPageloc.handleUserFrame();
     await AuthPageloc.clicksearch();
+     
 })
 
 

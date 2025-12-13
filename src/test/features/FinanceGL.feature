@@ -6,12 +6,12 @@ Feature: Process FinanceGL for a customer
             Given User navigates to the application
              When MAK user enters the username and password
               And click on signin button
-             Then valdiate the home page tite as "<HomePageTitle>"
+             Then valdiate the home page tite as "Oracle Financial Services"
               And enter the Branch number as "<BranchNumber>"
              When enters the function name as "<FunctionName>" and click on search button
               And User clicks on EnterQuery Tab
               And User enters AccountNumber "<AccountNumber>"
-             When User clicks on ExecuteQuery Tab
+             When User clicks on ExecuteQuery Tab   
              Then validate query results are not displayed
  
         Examples:
@@ -59,7 +59,7 @@ Feature: Process FinanceGL for a customer
  
         Examples:
                   | BranchNumber | FunctionName | Description    | Debit | Credit | DrCr1 | BranchCode1 | Currency1 | Amount1 | TxnCode1 | DrCr2  | BranchCode2 | AccountNumber2 | Currency2 | Amount2 | TxnCode2 | HomeBranchNumber |
-                  | 100          | DEDJNLON     | DE Transaction | 1000  | 1000   | Debit | 100         | LSL       | 1000    | ANC      | Credit | 100         | 1000028500015  | LSL       | 1000    | ANC      | 999              |
+                  | 100          | DEDJNLON     | DE Transaction | 1000  | 1000   | Debit | 100         | LSL       | 1000    | ANC      | Credit | 100         | 1015367000012  | LSL       | 1000    | ANC      | 999              |
  
         @set3
         Scenario Outline: Login with Checker Credential and authorize
@@ -86,7 +86,7 @@ Feature: Process FinanceGL for a customer
             Given User navigates to the application
              When MAK user enters the username and password
               And click on signin button
-             Then valdiate the home page tite as "<HomePageTitle>"
+             Then valdiate the home page tite as "Oracle Financial Services"
               And enter the Branch number as "<BranchNumber>"
              When enters the function name as "<FunctionName>" and click on search button
               And User clicks on EnterQuery Tab
@@ -126,12 +126,12 @@ Feature: Process FinanceGL for a customer
    
         Examples:
                   | BranchNumber | FunctionName | GLCode    | GLDescription            | GLType | Category | DisplayOnReport | CurrencyRestrictions | PostingRestrictions | Reconciliation        | ParentGL  |
-                  | 999          | GLDCHACC     | 110010732 | Fund Transfer to Account | Normal | Asset    | Asset           | All Currencies       | Direct Posting      | Direct Reconciliation | 110010000 |
+                  | 999          | GLDCHACC     | 110010831| Fund Transfer to Account | Normal | Asset    | Asset           | All Currencies       | Direct Posting      | Direct Reconciliation | 110010000 |
         @set1
         Scenario Outline: Login with Checker Credential and authorize a newly created GL
             Given User navigates to the application
              When CHE user enters the username and password
-              And click on signin button as cheker
+              And click on signin button
               And enter the Branch number as "<BranchNumber>"
              When enters the function name as "<FunctionName>" and click on search button
               And set Authorization Status to Unauthorized
@@ -151,7 +151,7 @@ Feature: Process FinanceGL for a customer
         Scenario Outline: Attempt to create a GL with a duplicate GL Code and verify the system shows an error
             Given User navigates to the application
              When MAK user enters the username and password
-             When user enters the username and password
+            #  When user enters the username and password
               And click on signin button
               And enter the Branch number as "<BranchNumber>"
              When enters the function name as "<FunctionName>" and click on search button
@@ -199,13 +199,13 @@ Feature: Process FinanceGL for a customer
         Scenario Outline: Login with Checker Credential and authorize a newly created GL
             Given User navigates to the application
              When CHE user enters the username and password
-              And click on signin button as cheker
+              And click on signin button
               And enter the Branch number as "<BranchNumber>"
              When enters the function name as "<FunctionName>" and click on search button
               And set Authorization Status to Unauthorized
               And Enter the GL Code for authorization
               And click on search
-              And Open the first unauthorized record from results
+             And Open the first unauthorized record from results
               And Click on Authorize
               And Click on Accept
               And Click on OkafterAccept

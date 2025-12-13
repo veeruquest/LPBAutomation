@@ -2,7 +2,7 @@
 Feature:Teller Operations Feature
 
    
-  @TellerOperations1 @UserCreationandAuthSuccess
+  @TellerOperations1 @UserCreationandAuthSuccess @tdstartdatechange
     Scenario Outline: Validate User creation & Autherization process
     Given User navigates to the application
     When MAK user enters the username and password
@@ -36,7 +36,7 @@ Feature:Teller Operations Feature
     Then system should display success popup
     When user exits NewGenPage
      And user SignOff the application
-    And CHE user enters the username and password
+    And CHE user enters the username and password 
     And CHE user login in the application
     And valdiate the home page tite as "<HomePageTitle>"
      And user selects NextGen UI Dashboard and select Retail Operations 
@@ -53,10 +53,11 @@ Feature:Teller Operations Feature
 
  Examples:
       | HomePageTitle                                       | BranchNumber | LoginID | Username    | HomeBranch | Status | StartDate       | Language | Branch1 | Role1           | Branch2 | Role2         | App1  | App2 | App3 | App4    | App5     |   Status    |
-    | Oracle Financial Services - ENG - Transaction Input | 999        | AUTO     | AUTOUSER      | 100        | Enable | OCT 26, 2025  | ENG      | 100     | OBBRN_MANAGER        |100  | OBBRN_BASE    | PLATO | REMO | OBPY | DEPOSIT | LOAN | Unauthorized  |
+    | Oracle Financial Services - ENG - Transaction Input | 999        | AUTO     | AUTOUSER      | 100        | Enable | DEC 03, 2025  | ENG      | 100     | OBBRN_MANAGER        |100  | OBBRN_BASE    | PLATO | REMO | OBPY | DEPOSIT | LOAN | Unauthorized  |
 
 
-  @TellerOperations3 @VaultTellerCreationAndAuthSuccess
+  @TellerOperations3 @VaultTellerCreationAndAuthSuccess @tdstartdatechange 
+ 
     Scenario Outline: Validate User creation & Autherization process
     Given User navigates to the application
     When MAK user enters the username and password
@@ -135,9 +136,9 @@ Feature:Teller Operations Feature
 
  Examples:
       | HomePageTitle                                       | BranchNumber | LoginID | Username    | HomeBranch | status | StartDate       | Language | Branch1 | Role1           | Branch2 | Role2         | App1  | App2 | App3 | App4    | App5     |   Status    |SearchName      |    Status1        |TillType1| BranchCode | UserId   | TillType | CH_Currency | MinBal | MaxBal           | CL_Currency | MaxTxnAmt | AuthLimit     |Status1    |BranchName|
-    | Oracle Financial Services - ENG - Transaction Input | 999        | AUTO     | AUTOUSER      | 100        | Enable | OCT 26, 2025  | ENG      | 100     | OBBRN_MANAGER        |100  | OBBRN_BASE    | PLATO | REMO | OBPY | DEPOSIT | LOAN | Unauthorized  | Branch User Limits| Authorized       |Vault    |*.*       | AUTO26     | Till    | LSL          | 0.00    | 9,999,999,999.00| LSL    | 5,000.00   | 9,999,999.00    |Unauthorized| 100     |
+    | Oracle Financial Services - ENG - Transaction Input | 999        | AUTO     | AUTOUSER      | 100        | Enable |DEC 03, 2025  | ENG      | 100     | OBBRN_MANAGER        |100  | OBBRN_BASE    | PLATO | REMO | OBPY | DEPOSIT | LOAN | Unauthorized  | Branch User Limits| Authorized       |Vault    |*.*       | AUTO26     | Till    | LSL          | 0.00    | 9,999,999,999.00| LSL    | 5,000.00   | 9,999,999.00    |Unauthorized| 100     |
 
-   @TellerOperations2 @SupervisorUserCreationAndAuthSuccess
+   @TellerOperations2 @SupervisorUserCreationAndAuthSuccess @tdstartdatechange
     Scenario Outline: Validate SupervisorUser creation & Autherization process
    Given User navigates to the application
    When MAK user enters the username and password
@@ -190,9 +191,9 @@ Feature:Teller Operations Feature
 
   Examples:
    | HomePageTitle                                       | BranchNumber | LoginID | Username      | HomeBranch    | Status | StartDate       | Language | Branch1     | Role1              | Branch2 | Role2         | App1  | App2 | App3 | App4    | App5 |
-    | Oracle Financial Services - ENG - Transaction Input | 999        | ADMIN02     | ADMINUSER2      | 100        | Enable | OCT 26, 2025  | ENG      | 100     | CASA_SUPERVISOR       |100  | OBBRN_BASE    | PLATO | REMO | OBPY | DEPOSIT | LOAN |
+    | Oracle Financial Services - ENG - Transaction Input | 999        | ADMIN02     | ADMINUSER2      | 100        | Enable | DEC 03, 2025  | ENG      | 100     | CASA_SUPERVISOR       |100  | OBBRN_BASE    | PLATO | REMO | OBPY | DEPOSIT | LOAN |
 
-     @TellerOperations4 @TellerToVaultAutherizationSuccess
+     @TellerOperations4 @TellerToVaultAutherizationSuccess @tdstartdatechange
     Scenario Outline: Validate User creation & Autherization process
     Given User navigates to the application
     When MAK user enters the username and password
@@ -298,4 +299,4 @@ Feature:Teller Operations Feature
 
  Examples:
       | HomePageTitle                                       | BranchNumber | LoginID | Username    | HomeBranch | status | StartDate       | Language | Branch1 | Role1           | Branch2 | Role2         | App1  | App2 | App3 | App4    | App5     |   Status    |SearchName      |    Status1        |TillType1| BranchCode | UserId   | TillType | CH_Currency | MinBal | MaxBal           | CL_Currency | MaxTxnAmt | AuthLimit     |Status1    |BranchName|
-    | Oracle Financial Services - ENG - Transaction Input | 999        | AUTO     | AUTOUSER      | 100        | Enable |OCT 26, 2025  | ENG      | 100     | OBBRN_MANAGER        |100  | OBBRN_BASE    | PLATO | REMO | OBPY | DEPOSIT | LOAN | Unauthorized  | Branch User Limits| Authorized       |Vault    |*.*       | AUTO26     | Till    | LSL          | 0.00    | 9,999,999,999.00| LSL    | 5,000.00   | 9,999,999.00    |Unauthorized| 100     |
+    | Oracle Financial Services - ENG - Transaction Input | 999        | AUTO     | AUTOUSER      | 100        | Enable |DEC 03, 2025  | ENG      | 100     | OBBRN_MANAGER        |100  | OBBRN_BASE    | PLATO | REMO | OBPY | DEPOSIT | LOAN | Unauthorized  | Branch User Limits| Authorized       |Vault    |*.*       | AUTO26     | Till    | LSL          | 0.00    | 9,999,999,999.00| LSL    | 5,000.00   | 9,999,999.00    |Unauthorized| 100     |

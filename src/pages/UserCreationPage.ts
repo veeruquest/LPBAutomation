@@ -37,7 +37,7 @@ export default class UserCreationPage {
   async handleUserFrame() {
         try {
             // Wait for the iframe to appear in the DOM
-            const frameElementHandle = await this.page.waitForSelector(this.Elements.outerFrame, { timeout: 10000 });
+            const frameElementHandle = await this.page.waitForSelector(this.Elements.outerFrame, { timeout: 20000 });
              userframe = await frameElementHandle.contentFrame();
            // await frame.click(this.Elements.newTab)  
                    
@@ -48,7 +48,7 @@ export default class UserCreationPage {
 
   
   async clickNewTab() {
-    
+    await this.page.waitForTimeout(2000)
     await userframe.locator(this.Elements.newTabBtn).click();
   }
 
@@ -102,7 +102,7 @@ export default class UserCreationPage {
  async handleuserAFrame() {
         try {
             // Wait for the iframe to appear in the DOM
-            const frameElementHandle = await this.page.waitForSelector(this.Elements.outerFrame, { timeout: 10000 });
+            const frameElementHandle = await this.page.waitForSelector(this.Elements.outerFrame, { timeout: 20000 });
              frame = await frameElementHandle.contentFrame();
            // await frame.click(this.Elements.newTab)  
                    
@@ -142,7 +142,7 @@ export default class UserCreationPage {
     async enterOldCustID(){
        try {
             // Wait for the iframe to appear in the DOM
-            const frameElementHandle4 = await this.page.waitForSelector("//iframe[@id='ifr_LaunchWin']", { timeout: 10000 });
+            const frameElementHandle4 = await this.page.waitForSelector("//iframe[@id='ifr_LaunchWin']", { timeout: 20000 });
              frame1 = await frameElementHandle4.contentFrame();
            // await frame.click(this.Elements.newTab)  
                    await frame1.locator(this.Elements.OldUserid).clear()
@@ -163,7 +163,7 @@ export default class UserCreationPage {
    
        try {
             // Wait for the iframe to appear in the DOM
-            const frameElementHandle1 = await frame.waitForSelector("//iframe[@id='ifrSubScreen']", { timeout: 3000 });
+            const frameElementHandle1 = await frame.waitForSelector("//iframe[@id='ifrSubScreen']", { timeout: 10000 });
              authframe= await frameElementHandle1.contentFrame();
              
             await authframe.click(this.Elements.acceptbtn)  

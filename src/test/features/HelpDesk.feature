@@ -33,9 +33,9 @@ Feature:Help Desk Feature
     Examples:
         | HomePageTitle                                       | BranchNumber | FunctionName | userID | name | HomeEntity | Password    | SuccessMessage      |
         | Oracle Financial Services - ENG - Transaction Input | 999       | SSDUSRDF     | Oracle | John | ENTITY_ID1 | Manhat@1276 | Record Successfully |
-        # | Oracle Financial Services - ENG - Transaction Input   |   999       |    SSDUSRDF     | Oracle | Johna     | ENTITY_ID1  | Manhat@127 | Record Successfully   |
-        #| Oracle Financial Services - ENG - Transaction Input   |   999       |    SSDUSRDF     | Oracle| Johnb     | ENTITY_ID1  | Manhat@1278 | Record Successfully   |
-        # | Oracle Financial Services - ENG - Transaction Input   |   999       |    SSDUSRDF     | Oracle213 | Johnc     | ENTITY_ID1  | Manhat@1279 | Record Successfully   |
+        | Oracle Financial Services - ENG - Transaction Input   |   999       |    SSDUSRDF     | Oracle | Johna     | ENTITY_ID1  | Manhat@127 | Record Successfully   |
+         | Oracle Financial Services - ENG - Transaction Input   |   999       |    SSDUSRDF     | Oracle| Johnb     | ENTITY_ID1  | Manhat@1278 | Record Successfully   |
+        # | Oracle Financial Services - ENG - Transaction Input   |   999       |    SSDUSRDF     | Oracle4361 | Johnc     | ENTITY_ID1  | Manhat@1279 | Record Successfully   |
 
 
     @HelpDesk3 @CreateUserMaintAndAuthSuc   @tduserIdChange
@@ -66,8 +66,8 @@ Feature:Help Desk Feature
         When User Maintenance signoff the application
     Examples:
         | HomePageTitle                                       | BranchNumber | FunctionName | userID      | Timelevel | SuccessMessage      | FunName  | name | HomeEntity | Password    | SuccessMessage      |
-        | Oracle Financial Services - ENG - Transaction Input | 999          | SMDUSRDF     | Oracle2NB1 | 9         | Record Successfully | SSDUSRDF | Mary | ENTITY_ID1 | Manhat@1276 | Record Successfully |
-        #  | Oracle Financial Services - ENG - Transaction Input   |   999       |SMDUSRDF     | ORACLE63  | 9         | Record Successfully   |
+        # | Oracle Financial Services - ENG - Transaction Input | 999          | SMDUSRDF     |OracleTUKQ  | 9         | Record Successfully | SSDUSRDF | Mary | ENTITY_ID1 | Manhat@1276 | Record Successfully |
+         | Oracle Financial Services - ENG - Transaction Input   |   999       |SMDUSRDF     |OracleP6DW  | 9         | Record Successfully   |SSDUSRDF | Mary | ENTITY_ID1 | Manhat@1276 | Record Successfully |
 
 
     @HelpDesk5 @AssignRolesAuthenAndAuthSuc
@@ -313,7 +313,7 @@ Feature:Help Desk Feature
         When User Maintenance signoff the application
     Examples:
         | HomePageTitle                                       | BranchNumber | FunctionName | UserID      | BranchCode | FunctionCode | SuccessMessage      | functionname | FunName  | name | HomeEntity | Password    | Timelevel |
-        | Oracle Financial Services - ENG - Transaction Input | 999          | SMSUSRDF     | Oracle2NB1 | 100        | CLDACSTC     | Record Successfully | SMDUSRDF     | SSDUSRDF | Mary | ENTITY_ID1 | Manhat@1276 | 9         |
+        | Oracle Financial Services - ENG - Transaction Input | 999          | SMSUSRDF     | OracleP6DW | 100        | CLDACSTC     | Record Successfully | SMDUSRDF     | SSDUSRDF | Mary | ENTITY_ID1 | Manhat@1276 | 9         |
 
  
     @HelpDesk13 @CloseUserAndAuthSuc    @tduserIdChange
@@ -345,39 +345,42 @@ Feature:Help Desk Feature
          When User signoff the application
     Examples:
         | HomePageTitle                                       | BranchNumber | FunctionName | UserID   | SuccessMessage      |
-        | Oracle Financial Services - ENG - Transaction Input | 999          | SSDUSRDF     | Oracle1RTY | Record Successfully |
+        | Oracle Financial Services - ENG - Transaction Input | 999          | SSDUSRDF     | OracleMV9D | Record Successfully |
 
 
-    # @HelpDesk15 @CloseUserMaintAndAuthSuc  @tduserIdChange
-    # Scenario Outline: Validate close User Maintenance And Autherization process
-    #     Given User navigates to the application
-    #     When MAK user enters the username and password
-    #     And click on signin button
-    #     Then valdiate the home page tite as "<HomePageTitle>"
-    #     And enter the Branch number as "<BranchNumber>"
-    #     When enters the function name as "<FunctionName>" and click on search button
-    #     And User enters UserID as "<UserID>"
-    #     And User Clicks on Searh button
-    #     And User Double clicks on User
-    #     And User Clicks on close button
-    #     And User clicks on close ok button
-    #     Then User validates success message as "<SuccessMessage>"
-    #     When userScreen signoff the application
-    #     When CHE user enters the username and password
-    #     When CHE user login in the application
-    #     Then valdiate the home page tite as "<HomePageTitle>"
-    #     And enter the Branch number as "<BranchNumber>"
-    #     When enters the function name as "<functionname>" and click on search button
-    #     And User clicks assignenter query Tab
-    #     And User enters assigncustomer ID "<UserID>"
-    #     And User clicks assignexecute query Tab
-    #     And User clicks on assignAutherize Tab
-    #     And User accepts assignAutherize Alert
-    #     Then User validates assignsuccess msg "<SuccessMessage>"
-    #     When User Maintenance signoff the application
-    # Examples:
-    #     | HomePageTitle                                       | BranchNumber | FunctionName | UserID    | SuccessMessage      | functionname |
-    #     | Oracle Financial Services - ENG - Transaction Input | 999          | SSSUSRDF     | Oracle2NB1 | Record Successfully | SMDUSRDF     |
+    @HelpDesk15 @CloseUserMaintAndAuthSuc  @tduserIdChange
+    Scenario Outline: Validate close User Maintenance And Autherization process
+        Given User navigates to the application
+        When MAK user enters the username and password
+        And click on signin button
+        Then valdiate the home page tite as "<HomePageTitle>"
+        And enter the Branch number as "<BranchNumber>"
+        When enters the function name as "<FunctionName>" and click on search button
+        And User clicks assignenter query Tab
+        And User enters assigncustomer ID "<UserID>"
+        And User clicks assignexecute query Tab
+        #And User enters UserID as "<UserID>"
+        # And User Clicks on Searh button
+        # And User Double clicks on User
+        #And User Clicks on close button
+        #And User clicks on close ok button
+        Then User Validates close Maintenance Account with "<SuccessMessage>"
+        When User Maintenance signoff the application
+        When CHE user enters the username and password
+        When CHE user login in the application
+        Then valdiate the home page tite as "<HomePageTitle>"
+        And enter the Branch number as "<BranchNumber>"
+        When enters the function name as "<functionname>" and click on search button
+        And User clicks assignenter query Tab
+        And User enters assigncustomer ID "<UserID>"
+        And User clicks assignexecute query Tab
+        And User clicks on assignAutherize Tab
+        And User accepts assignAutherize Alert
+        Then User validates assignsuccess msg "<SuccessMessage>"
+        When User Maintenance signoff the application
+    Examples:
+        | HomePageTitle                                       | BranchNumber | FunctionName | UserID    | SuccessMessage      | functionname |
+        | Oracle Financial Services - ENG - Transaction Input | 999          | SMDUSRDF     | OracleP6DW | Record Successfully | SMDUSRDF     |
 
 
     @HelpDesk17 @UserDisableAndAuthSuc   @tduserIdChange
@@ -410,7 +413,7 @@ Feature:Help Desk Feature
         When User signoff the application
     Examples:
         | HomePageTitle                                       | BranchNumber | FunctionName | UserID   | SuccessMessage      |
-        | Oracle Financial Services - ENG - Transaction Input | 999          | SSDUSRDF     | Oracle2NB1 | Record Successfully |
+        | Oracle Financial Services - ENG - Transaction Input | 999          | SSDUSRDF     | OracleP6DW  | Record Successfully |
 
 
     @HelpDesk19 @UserEnableAndAuthSuc   @tduserIdChange
@@ -443,7 +446,7 @@ Feature:Help Desk Feature
         When User signoff the application
     Examples:
         | HomePageTitle                                       | BranchNumber | FunctionName | UserID   | SuccessMessage      |
-        | Oracle Financial Services - ENG - Transaction Input | 999          | SSDUSRDF     | Oracle2NB1 | Record Successfully |
+        | Oracle Financial Services - ENG - Transaction Input | 999          | SSDUSRDF     | OracleP6DW  | Record Successfully |
 
 
     @HelpDesk21 @UserPwdChangeAndAuthSuc  @tduserIdChange
@@ -475,7 +478,7 @@ Feature:Help Desk Feature
         When User signoff the application
     Examples:
         | HomePageTitle                                       | BranchNumber | FunctionName | UserID   | NewPassword | SuccessMessage      | functionname |
-        | Oracle Financial Services - ENG - Transaction Input | 999          | SSSUSRDF     | Oracle2NB1 | Welcome@13  | Record Successfully | SSDUSRDF     |
+        | Oracle Financial Services - ENG - Transaction Input | 999          | SSSUSRDF     | OracleP6DW  | Welcome@13  | Record Successfully | SSDUSRDF     |
 
     @HelpDesk23 @UsernameChangeAndAuthSuc   @tduserIdChange
     Scenario Outline: Validate the Change Username And Autherization process
@@ -506,40 +509,9 @@ Feature:Help Desk Feature
         When User signoff the application
     Examples:
         | HomePageTitle                                       | BranchNumber | FunctionName | UserID   | NewUserName | SuccessMessage      | functionname |
-        | Oracle Financial Services - ENG - Transaction Input | 999          | SSSUSRDF     | Oracle2NB1 | John        | Record Successfully | SSDUSRDF     |
+        | Oracle Financial Services - ENG - Transaction Input | 999          | SSSUSRDF     | OracleP6DW | John        | Record Successfully | SSDUSRDF     |
 
 
 
- @HelpDesk25 @CloseUserMaintAndAuthSuc  @tduserIdChange
-    Scenario Outline: Validate close User Maintenance And Autherization process
-        Given User navigates to the application
-        When MAK user enters the username and password
-        And click on signin button
-        Then valdiate the home page tite as "<HomePageTitle>"
-        And enter the Branch number as "<BranchNumber>"
-        When enters the function name as "<FunctionName>" and click on search button
-        And User enters UserID as "<UserID>"
-        And User Clicks on Searh button
-        And User Double clicks on User
-        And User Clicks on close button
-        And User clicks on close ok button
-        Then User validates success message as "<SuccessMessage>"
-        When userScreen signoff the application
-        When CHE user enters the username and password
-        When CHE user login in the application
-        Then valdiate the home page tite as "<HomePageTitle>"
-        And enter the Branch number as "<BranchNumber>"
-        When enters the function name as "<functionname>" and click on search button
-        And User clicks assignenter query Tab
-        And User enters assigncustomer ID "<UserID>"
-        And User clicks assignexecute query Tab
-        And User clicks on assignAutherize Tab
-        And User accepts assignAutherize Alert
-        Then User validates assignsuccess msg "<SuccessMessage>"
-        When User Maintenance signoff the application
-    Examples:
-        | HomePageTitle                                       | BranchNumber | FunctionName | UserID    | SuccessMessage      | functionname |
-        | Oracle Financial Services - ENG - Transaction Input | 999          | SSSUSRDF     | Oracle2NB1 | Record Successfully | SMDUSRDF     |
-
-
+ 
 

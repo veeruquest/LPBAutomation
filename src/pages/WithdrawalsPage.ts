@@ -275,7 +275,7 @@ async clickPendingApproval(){
      await targetPage.locator(this.Elements.fetchbtn1).click();
  await targetPage.waitForTimeout(3000);
 //  await targetPage.locator('oj-button span.oj-button-text:has-text("Submit Transaction")').click();
-  await targetPage.locator("(//button)[29]").click();
+  await targetPage.locator("//oj-button[@id='resubmitBtn']//button[@class='oj-button-button']").first().click();
     await targetPage.getByRole('button', { name: 'Confirm' }).click();
     await expect(await targetPage.locator(this.Elements.successmsg).textContent()).toContain('Success')
     console.log('Successfully Saved')

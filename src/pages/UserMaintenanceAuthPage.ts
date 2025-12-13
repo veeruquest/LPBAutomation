@@ -68,5 +68,20 @@ acceptbtn:"#BTN_OK",
     
            
         }
+        async closeMaintAc(message:string){
+        await frame.click("//li[@id='Close']//a")   
+        // }
+         const frameElementHandle2 = await frame.waitForSelector("//iframe[@id='ifr_AlertWin']", { timeout: 20000 });
+       
+          successframe = await frameElementHandle2.contentFrame();
+            await successframe.click(this.Elements.okbtn) 
+             const frameElementHandle3 = await frame.waitForSelector("//iframe[@id='ifr_AlertWin']", { timeout: 20000 });
+                   
+                      successframe = await frameElementHandle3.contentFrame();
+                      const successmessage = successframe.locator("//table//tr//td//span[contains(text(),'Record Successfully ')]");
+                     console.log("success message is "+await successmessage.textContent())
+                        expect(await successmessage.textContent()).toContain(message);
+                      await successframe.click(this.Elements.okbtn); 
     }
-    
+
+}

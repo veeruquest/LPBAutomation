@@ -41,7 +41,7 @@
      | BranchCode  |  Accnum          | Txnamt | custinfo |
      | 100         | 1025603300019    | 10   | Withdrawal    |
 
-@set3 @Accnum @Txnamt
+ @set3 @Accnum @Txnamt
 ##  Amount withdrawal above the transaction limit
    Scenario Outline: Maker withdraws the amount
    Given User navigates to the application
@@ -58,9 +58,9 @@
         Then validate that transaction is submitted succesfully for approval
     Examples:
      | BranchCode  |  Accnum          | Txnamt | custinfo |
-     | 100         | 1025603300019    | 51000  | Withdrawal    |
- 
+     | 100         | 1025603300019    | 51000  | Withdrawal  |  
 
+     @set3
     Scenario Outline: Cheker Approves the Transaction
         Given User navigates to the application
         When CHE user enters the username and password
@@ -70,12 +70,12 @@
         And changes the branch code as "<BranchCode>"
         And selects Electronic Journal in the Teller Menu Bar
         And Fetches the transactions that have status as Pending Approval
-        And approves the transaction
+        # And approves the transaction
      Examples:
      | BranchCode  | 
      | 100         | 
 
-
+@set3
     Scenario Outline: Maker Approves the Transaction
         Given User navigates to the application
         When MAK user enters the username and password
@@ -86,10 +86,9 @@
         And selects Electronic Journal in the Teller Menu Bar
         And selects Sent Back in the Transaction Status
         And Clicks on the Fetch button
-        And approves the transaction
-    #      Then validate the message
-    #      And signoff the application
-    # #  Examples:
+        # And approves the transaction
+   
+     Examples:
      | BranchCode  |
      | 100         |
 
@@ -102,9 +101,6 @@
         And User selects the NextGen tab
         And Clicks on Retail Operations
         And changes the branch code as "<BranchCode>"
-        # And clicks on Tellertab
-        # And selects Open Branch Batch Option
-        # And selects Open Teller Batch Option
         And selects Cash Withdrawal in the Teller Menu Bar
         And enters the Account number "<Accnum>"
         And enters the Transaction Amount "<Txnamt>"

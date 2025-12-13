@@ -323,6 +323,10 @@ async EnterSdateforLD(sdate) {
     async EnterEdate(edate) {
           await this.page.locator("//input[@id='_paramsEDate']").clear();
           await this.page.locator("//input[@id='_paramsEDate']").fill(edate);
+        //   console.log("Entered End Date");
+        //    await this.page.locator("//button[@id='reportViewApply']").click();
+        //    console.log("Clicked on Run Report");
+        //    await this.page.waitForTimeout(400000);
     }
 
 //Loan Disbursement Report
@@ -341,7 +345,9 @@ async EnterSdateforLD(sdate) {
      async EnterTxnDateforUDF(TxnDate) {
           await this.page.locator("//input[@id='_paramsDate_']").clear();
           await this.page.locator("//input[@id='_paramsDate_']").fill(TxnDate);
-    }
+         // await this.page.locator("//button[@id='reportViewApply']").click();
+         // await this.page.waitForTimeout(200000);
+     }
 
 async RunReport() {
         await this.page.locator("//button[@id='reportViewApply']").click();

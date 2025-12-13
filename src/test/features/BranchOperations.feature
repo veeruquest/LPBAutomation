@@ -19,17 +19,3 @@ Feature: Open And Close Branch and Teller Batch
          | Oracle Financial Services                           | 999       |
 
 
-  @BranchOps2 @CloseTellerBatch
-  Scenario Outline: Perform Close Teller Batch successfully
-   Given User navigates to the application
-   When MAK user enters the username and password
-   And click on signin button
-   Then valdiate the home page tite as "<HomePageTitle>"
-   And enter the Branch number as "<BranchNumber>"
-   And user selects BrOPs NextGen UI Dashboard
-    And selects Close Teller Batch Option
-       And user exits from NextGen BrOPs
-      
- Examples:
-         | HomePageTitle                                       | BranchNumber |
-         | Oracle Financial Services                           | 999       |

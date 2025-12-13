@@ -53,7 +53,7 @@ Feature: Processing Feature
 
   Examples:
      | HomePageTitle                                       | BranchNumber | FunctionName  | BatchNumber | Description | Debit | Credit | DebitBranch | DebitAccount | CreditBranch | CreditAccount  | Currency | Amount | TransactionCode |functionname|AuthorizationStatus |branchnumber|
-    | Oracle Financial Services - ENG - Transaction Input | 100        | DEDJNLON        |     785D43        | 101DE       | 2000 | 2000   | 100         | 110010101    | 100          | 1016722500012  | LSL      | 2000   | AAT             |DESJNLON   |    U                   |999|
+    | Oracle Financial Services - ENG - Transaction Input | 100        | DEDJNLON        |     785D43        | 101DE       | 2000 | 2000   | 100         | 110010101    | 100          | 1015367000012 | LSL      | 2000   | AAT             |DESJNLON   |    U                   |999|
 
 
     @Processing02 @Voucher102
@@ -108,7 +108,7 @@ Feature: Processing Feature
 
   Examples:
      | HomePageTitle                                       | BranchNumber | FunctionName  | BatchNumber | Description | Debit | Credit | DebitBranch | DebitAccount | CreditBranch | CreditAccount  | Currency | Amount | TransactionCode |functionname|AutheirizationStatus |branchnumber|
-    | Oracle Financial Services - ENG - Transaction Input | 100        | DEDJNLON        |        56      | 102DE       | 3000 | 3000   | 100         | 110010101    | 100          | 1036945200018  | LSL      | 3000   | AAT             |DESJNLON   |    U                   |999|
+    | Oracle Financial Services - ENG - Transaction Input | 100        | DEDJNLON        |        56      | 102DE       | 3000 | 3000   | 100         | 110010101    | 100          | 1015367000012 | LSL      | 3000   | AAT             |DESJNLON   |    U                   |999|
 
 
      @Processing03 @Voucher104
@@ -162,7 +162,7 @@ Feature: Processing Feature
     And user SignOff the application
   Examples:
      | HomePageTitle                                       | BranchNumber | FunctionName  | BatchNumber | Description | Debit | Credit | DebitBranch | DebitAccount | CreditBranch | CreditAccount  | Currency | Amount | TransactionCode |functionname|AutheirizationStatus |branchnumber|
-    | Oracle Financial Services - ENG - Transaction Input | 100        | DEDJNLON        | 254       | 104DE       | 3000 | 3000   | 100         | 110010101    | 100          | 1036942900013  | LSL      | 3000   | AAT             |DESJNLON   |    U                   |999|
+    | Oracle Financial Services - ENG - Transaction Input | 100        | DEDJNLON        | 254       | 104DE       | 3000 | 3000   | 100         | 110010101    | 100          | 1015367000012 | LSL      | 3000   | AAT             |DESJNLON   |    U                   |999|
 
 
      @Processing04 @Voucher105
@@ -217,4 +217,4 @@ Feature: Processing Feature
 
   Examples:
      | HomePageTitle                                       | BranchNumber | FunctionName  | BatchNumber | Description | Debit | Credit | DebitBranch | DebitAccount | CreditBranch | CreditAccount  | Currency | Amount | TransactionCode |functionname|AutheirizationStatus |branchnumber|
-    | Oracle Financial Services - ENG - Transaction Input | 100        | DEDJNLON        | 97C6        | 105DE       | 3000 | 3000   | 100         | 110010101    | 100          | 1036942900013  | LSL      | 3000   | ANC            |DESJNLON   |    U                   |999|
+    | Oracle Financial Services - ENG - Transaction Input | 100        | DEDJNLON        | 97C6        | 105DE       | 3000 | 3000   | 100         | 110010101    | 100          | 1015367000012  | LSL      | 3000   | ANC            |DESJNLON   |    U                   |999|

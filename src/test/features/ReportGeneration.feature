@@ -2,7 +2,7 @@
  Feature: Generate Reports
   
 #  @CGenerate Report - @Start Date, @ End Date
-
+@NewAccount
   Scenario Outline: New Account Report
   Given User navigates to the Reports application
     When user enters the Reports username and password
@@ -15,12 +15,12 @@
         And Enter the Start Date "<Start Date>"
         And Enter the End Date "<End Date>"
         And Run the Report
-    
-        Examples:
+     Examples:
      |Branch Number| Start Date | End Date |
      |100          | 01-01-2024 | 11-19-2025 |
 
-  # @Start Date, @ End Date
+
+  @ClosedAccount
   Scenario Outline: Closed Account Report
   Given User navigates to the Reports application
     When user enters the Reports username and password
@@ -39,6 +39,8 @@
      |100          | 12-31-2023 | 11-18-2025 |
 
 # @Start Date, @ End Date
+  @CustomerSegmentation
+      
   Scenario Outline: Customer Segmentation Report
   Given User navigates to the Reports application
     When user enters the Reports username and password
@@ -58,6 +60,7 @@
 
 
 # @Start Date, @ End Date
+@ReactivationReport
        Scenario Outline: Reactivated Document Accounts Report
   Given User navigates to the Reports application
     When user enters the Reports username and password
@@ -76,6 +79,7 @@
      |100          | 02-02-2024 | 11-19-2025 |
 
 # @Start Date, @ End Date
+@VaultTransactionReport
        Scenario Outline: Vault Transaction Report
   Given User navigates to the Reports application
     When user enters the Reports username and password
@@ -94,6 +98,7 @@
      |100          | LSL       | 02-02-2024 | 11-19-2025 |
 
 # @ Date
+@CashPosition
  Scenario Outline: Cash Position Report
   Given User navigates to the Reports application
     When user enters the Reports username and password
@@ -110,6 +115,7 @@
      |A00359     | 12-19-2023 |
 
   # @Transaction Date
+  @UDFReport
  Scenario Outline: UDF report
   Given User navigates to the Reports application
     When user enters the Reports username and password
@@ -126,6 +132,7 @@
      |100          | 11-19-2024 |
 
 # @UserID, @AccountType, @Branch Number, @Start Date, @End Date, @AmtFrom, @AmtTo
+@LargeCashTransaction
  Scenario Outline: Large cash transaction report
   Given User navigates to the Reports application
     When user enters the Reports username and password
@@ -146,7 +153,7 @@
      |UserID|AccountType|Branch Number | Start Date | End Date | AmtFrom | AmtTo |
      |All   |101        |100            |02-02-2025 |11-19-2025|    0    | 40000 |
 
-
+@TDMaturingNextMonth
  Scenario Outline: TD maturing next month
   Given User navigates to the Reports application
     When user enters the Reports username and password
@@ -162,6 +169,7 @@
      |100          |
 
 # @UserID, @Transaction Date
+@DailyTellerTransaction
  Scenario Outline: Daily teller transaction report
   Given User navigates to the Reports application
     When user enters the Reports username and password
@@ -180,6 +188,7 @@
 
 
 # @Start Date, @End Date
+@LoanDisbursement
  Scenario Outline: Loan Disbursement report
   Given User navigates to the Reports application
     When user enters the Reports username and password

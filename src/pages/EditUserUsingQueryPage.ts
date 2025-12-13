@@ -40,7 +40,9 @@ saveBtn: "//li[@id='Save']//a",
         await frame.click(this.Elements.newquerytab) 
     }
     async enterCustID(custID: string) {
+        await frame.locator(this.Elements.cusID).clear();
         await frame.locator(this.Elements.cusID).fill(custID);
+        await this.page.waitForTimeout(2000)
     }
      async executequery(){
         await frame.click(this.Elements.executequerytab) 

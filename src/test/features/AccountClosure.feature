@@ -22,7 +22,7 @@ Feature:Account Closure Feature
 
     Examples:
     | HomePageTitle                                       | BranchNumber   | AccountNumber  |BranchName|
-     | Oracle Financial Services - ENG - Transaction Input | 999         |  1030205100010 |100|
+     | Oracle Financial Services - ENG - Transaction Input | 999         |  1024027100019 |100|
 
     
  @ACClosureAuth1  
@@ -51,7 +51,7 @@ Feature:Account Closure Feature
 
     Examples:
     | HomePageTitle                               | BranchNumber   | AccountNumber  |BranchName|
-     | Oracle Financial Services                   | 999         |  1030205100010   |100|
+     | Oracle Financial Services                   | 999         |  1024027100019   |100|
 
  @ACClosure2  @tdAccountChange
   Scenario Outline: Perform Acount Closure By Account Mode successfully
@@ -69,12 +69,12 @@ Feature:Account Closure Feature
     And user clicks on Query Tab
     And user enters Transaction Reference Number for AccountNumber as "<AccountNumber>"
     And user selects By Account Mode
-    When user exits NewGenDepositPage
+    
    
 
     Examples:
     | HomePageTitle                                       | BranchNumber   | AccountNumber  |BranchName|
-     | Oracle Financial Services - ENG - Transaction Input | 999         |   1007963600011  |100|
+     | Oracle Financial Services - ENG - Transaction Input | 999         |  1003988200018  |100|
 
 @ACClosureAuth2  
   Scenario Outline: Perform Acount Closure By Account Mode Authentication successfully
@@ -102,4 +102,4 @@ Feature:Account Closure Feature
 
     Examples:
     | HomePageTitle                               | BranchNumber   | AccountNumber  |BranchName|
-     | Oracle Financial Services                   | 999         |  1007963600011    |100|
+     | Oracle Financial Services                   | 999         | 1003988200018 |100|

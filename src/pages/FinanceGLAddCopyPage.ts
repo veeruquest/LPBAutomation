@@ -54,10 +54,7 @@ export default class FinanceGLAddCopyPage {
   async handleAMFrame() {
     try {
       // Wait for the iframe to appear in the DOM
-      const frameElementHandle = await this.page.waitForSelector(
-        '//iframe[contains(@title, "Chart of Accounts Maintenance")]',
-        { timeout: 45000 }
-      );
+      const frameElementHandle = await this.page.waitForSelector('//iframe[contains(@title, "Chart of Accounts Maintenance")]', { timeout: 45000 } );
     const frame = await frameElementHandle.contentFrame();
    return frame;
     } catch (message) {
@@ -368,7 +365,10 @@ async handleAMSFrame() {
 }
 
 async clickAuthorize(){
+  
 const frameLocator = this.page.frameLocator("iframe[title*='Chart of Accounts Maintenance']:not([title*='Summary'])");
+
+
 
 await frameLocator
   .locator("//div[@id='toolbar' and not(contains(@style,'display:none'))]//li[@id='Authorize']/a")

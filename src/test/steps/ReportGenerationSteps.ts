@@ -209,6 +209,8 @@ When("Enter the Start Date for Loan Disbursement {string}", async function (sdat
 When("Enter the End Date {string}", async function (edate : string) {
     const RGPageloc = new ReportGenerationPage(fixture.page);
     await RGPageloc.EnterEdate(edate);
+
+    
 });
 
 When("Enter the End Date for Loan Disbursement {string}", async function (edate : string) {

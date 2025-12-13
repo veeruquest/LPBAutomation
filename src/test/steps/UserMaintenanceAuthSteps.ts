@@ -42,6 +42,9 @@ When("User clicks assignexecute query Tab",async function(){
     fixture.logger.info("clicks on userExecute Query Tab");
     await AuthPageloc.executequery();
 })
+Then ("User Validates close Maintenance Account with {string}",async function(message){
+    await AuthPageloc.closeMaintAc(message);
+})
 
 When("User clicks on assignAutherize Tab",async function(){
     await AuthPageloc.authTabclick();

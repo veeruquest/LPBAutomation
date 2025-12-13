@@ -17,14 +17,16 @@ export default class ReatailDepositPage {
     NextGenFrame: '//iframe[contains(@title, "Next Gen UI Dashboard")]',
     fetch:"//button[@class='oj-button-button']//span[@id='_oj34-lov-dialog-body-filter-fetch_oj47|text']",
     maintab: "//span[normalize-space()='Teller']",
-    screenBtn: "//span[normalize-space()='Cash Deposit']",
+   screenBtn: "//span[normalize-space()='Cash Deposit']",
+   // screenBtn: "//span[normalize-space()='Cash Withdrawal']",
     AcclosureBtn:"//span[normalize-space()='Close Out Withdrawal']",
     screenBtn2:"//span[normalize-space()='Electronic Journal']",
     dropdown:"//a[@aria-label='expand']",
     pendingapproval:"//ul[@role='listbox']//li[6]//div",
     Sentbank:"//ul[@role='listbox']//li[3]//div",
     approveBtn:"//oj-button[@id='approveBtn']//button[@class='oj-button-button']",
-    accountNumber: "//input[@id='txnAcc|input']",
+   accountNumber: "//input[@id='txnAcc|input']",
+   // accountNumber:"//input[@id='accNo|input']",
     closeacno:"//input[@id='accNo|input']",
     icLiqBtn:"//span[@data-bind='text : labelsCommon.liquidate']",
     //transactionAmount: "(//input[@id='_oj105-input-text|input'])[1]",
@@ -40,7 +42,7 @@ export default class ReatailDepositPage {
     queryTab:"//span[@data-bind='text : labelsCommon.queryLbl']",
     transRefBtn:"(//span[@slot='startIcon'])[10]",
     bycashmode:"//ul//li//div[@aria-label='By Cash']",
-    byaccountmode:"//ul//li//div[@aria-label='By Transfer']",
+    byaccountmode:"//ul//li//div[@aria-label='By Account']",
     expandBtn:"//div[@id='oj-combobox-choice-closeMode']//span[@class='oj-text-field-end']//a[@aria-label='expand']",
     submitcloseBtn:"(//span[@id='wiz-custom-footer-next_oj61|text'])[1]",
     submitclose1Btn:"(//span[@id='wiz-custom-footer-next_oj281|text'])[1]",
@@ -97,7 +99,7 @@ await newPage.waitForTimeout(20000);
   }
   async BranchSelection(BranchName: string) {
 
-    await newPage.locator("//div[@class='branch-container']//span[@id='branch-name']").click({ timeout: 150000 });
+    await newPage.locator("//div[@class='branch-container']//span[@id='branch-name']").click({ timeout: 100000 });
     console.log("Clicked on branch name in new page");
     await newPage.fill("(//input[@id='_oj34-lov-dialog-body-filter-label-branchCode|input'])[1]", BranchName);
     console.log("Entered Branch code")
@@ -154,7 +156,7 @@ await newPage.waitForTimeout(20000);
     console.log('clicked on dropdown')
     await newPage.waitForTimeout(2000)
     await newPage.locator(this.elements.Sentbank).click()
-    console.log('clicked on pending approval')
+    console.log('clicked on sent Back approval')
      await newPage.locator("(//button[@class='oj-button-button'])[12]").click();
     await newPage.locator("//oj-button[@id='resubmitBtn']//button[@class='oj-button-button']").first().click();
     await newPage.getByRole('button', { name: 'Confirm' }).click();
@@ -259,7 +261,23 @@ async closeScreen(){
     await newPage.locator(this.elements.okButton).click()
    await newPage.getByRole('button', { name: 'No' }).click();
   }
-  
+  async submitclick2(){
+   
+     //await newPage.getByRole('button', { name: 'Submit' }).click();
+    
+     await newPage.getByRole('button', { name: 'Confirm' }).click();
+     await newPage.getByRole('button', { name: 'Submit For Approval' }).click();
+   console.log('clicked on button1')
+   await newPage.waitForTimeout(2000)
+    await expect(await newPage.locator(this.elements.successmsg).textContent()).toContain('Approval')
+    console.log('sent for Approval')
+    await newPage.waitForTimeout(5000)
+     await expect(await newPage.locator(this.elements.successmsg).textContent()).toContain('Approval')
+    console.log('sent for Approval')
+    await newPage.locator(this.elements.okButton).click()
+   await newPage.getByRole('button', { name: 'No' }).click();
+    
+  }
 
   async enterTransactionAmount(amount: string) {
     await newPage.locator(this.elements.transactionAmount).fill(amount);
@@ -287,7 +305,7 @@ async closeScreen(){
    await newPage.getByRole('button', { name: 'Confirm' }).click();
    await newPage.getByRole('button', { name: 'Submit For Approval' }).click();
    console.log('clicked on button1')
-   await newPage.waitForTimeout(2000)
+   await newPage.waitForTimeout(5000)
   //    //await newPage.locator("#_oj133assign_auto_tellerRemark",{timeout:5000})
   //   await newPage.locator(this.elements.submitforApprove).click()
   //    console.log('clicked on button2')
@@ -297,8 +315,8 @@ async closeScreen(){
     await newPage.locator(this.elements.okButton).click()
     //await newPage.locator(this.elements.adviceconf).click()
     try {
-      await newPage.locator("#closeScreenDialog_oj65", { timeout: 5000 });
-      console.log("close dialog detected");
+      // await newPage.locator("#closeScreenDialog_oj65", { timeout: 5000 });
+      // console.log("close dialog detected");
 
       await newPage.locator(this.elements.NoBtn).click()
       console.log("Clicked on Proceed button");
@@ -311,6 +329,7 @@ async closeScreen(){
     }
   }
   async successPop() {
+  
     await expect(await newPage.locator(this.elements.successmsg).textContent()).toContain('Success')
     console.log('Successfully Saved')
     await newPage.locator(this.elements.okButton).click()

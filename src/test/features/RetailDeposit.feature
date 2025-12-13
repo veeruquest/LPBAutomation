@@ -21,8 +21,9 @@ Feature: Cash Deposit Transaction
 
     Examples:
     | HomePageTitle                                       | BranchNumber   | AccountNumber | TransactionAmount | CustomerInterview |BranchName|
-     | Oracle Financial Services - ENG - Transaction Input | 999         |   1037634900015 | 1000            |              |100|
-
+    | Oracle Financial Services - ENG - Transaction Input | 999         |  1035471300017| 1000            |              |100|
+    | Oracle Financial Services - ENG - Transaction Input | 999         |  1013099100014| 20000            |              |100|
+    
      @Depostit2 @CashDepositmorethanlimitandAuth  @tdAccountChange
   Scenario Outline: Perform Cash Deposit over the limit successfully
      Given User navigates to the application
@@ -65,7 +66,7 @@ Feature: Cash Deposit Transaction
 
     Examples:
     | HomePageTitle                                       | BranchNumber   | AccountNumber | TransactionAmount | CustomerInterview |BranchName|
-     | Oracle Financial Services - ENG - Transaction Input | 999         |    1036892600010 | 70000            |                   |100|
+     | Oracle Financial Services - ENG - Transaction Input | 999         |   1025603300019 | 55000            |                   |100|
 
 #      @Depostit3 @CashDepositmorethanlimitAuth   @tdAccountChange
 #   Scenario Outline: Perform Cash Deposit overthelimit auth successfully
@@ -96,6 +97,5 @@ Feature: Cash Deposit Transaction
 #     Examples:
 #     | HomePageTitle                                       | BranchNumber   | AccountNumber | TransactionAmount | CustomerInterview |BranchName|
 #      | Oracle Financial Services - ENG - Transaction Input | 999         |   1008172000014 | 60000            | Deposited              |100|
-
 
   

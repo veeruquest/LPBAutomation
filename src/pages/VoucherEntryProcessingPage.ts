@@ -62,7 +62,7 @@ export default class VoucherEntryProcessingPage {
   };
 
   async handleJournalFrame() {
-    const frameHandle = await this.page.waitForSelector(this.Elements.outerFrame, { timeout: 10000 });
+    const frameHandle = await this.page.waitForSelector(this.Elements.outerFrame, { timeout: 20000 });
     JournalFrame = await frameHandle.contentFrame();
     console.log("Switched to Journal Frame");
   }
@@ -73,7 +73,7 @@ export default class VoucherEntryProcessingPage {
 async handleBatchFrame() {
     try {
         // Wait for the iframe to appear in the DOM     
-        const frameElementHandle = await JournalFrame.waitForSelector(this.Elements.innerFrame, { timeout: 10000 });
+        const frameElementHandle = await JournalFrame.waitForSelector(this.Elements.innerFrame, { timeout: 20000 });
             batchFrame = await frameElementHandle.contentFrame();
     } catch (message) {
         console.log("Frame not found");
@@ -103,7 +103,7 @@ async handleBatchFrame() {
     await batchFrame.locator(this.Elements.batchNumber).fill(batchno);
   }
    async enterBatchnumber() {
-    const frameHandle = await this.page.waitForSelector(this.Elements.outerFrame, { timeout: 10000 });
+    const frameHandle = await this.page.waitForSelector(this.Elements.outerFrame, { timeout: 20000 });
     JournalFrame = await frameHandle.contentFrame();
     console.log("Batchno is "+batchno)
            await JournalFrame.locator(this.Elements.batchnmbr).clear()

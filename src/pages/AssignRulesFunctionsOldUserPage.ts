@@ -60,7 +60,7 @@ export default class AssignRulesFunctionsOldUserPage {
   async handleUserFrame() {
         try {
             // Wait for the iframe to appear in the DOM
-            const frameElementHandle = await this.page.waitForSelector("//iframe[@id='ifr_LaunchWin']", { timeout: 10000 });
+            const frameElementHandle = await this.page.waitForSelector("//iframe[@id='ifr_LaunchWin']", { timeout: 20000 });
              userframe = await frameElementHandle.contentFrame();
            // await frame.click(this.Elements.newTab)  
                    
@@ -75,7 +75,7 @@ export default class AssignRulesFunctionsOldUserPage {
      await userframe.locator(this.Elements.searchbutton).click();
       try {
             // Wait for the iframe to appear in the DOM
-            const frameElementHandle1 = await userframe.waitForSelector("//iframe[@id='ifrSubScreen']", { timeout: 10000 });
+            const frameElementHandle1 = await userframe.waitForSelector("//iframe[@id='ifrSubScreen']", { timeout: 20000 });
              rolesframe= await frameElementHandle1.contentFrame();
              await rolesframe.locator(this.Elements.fetchfirstrow).click();  
                    
@@ -124,7 +124,7 @@ async clickRolesTab(){
        
             // Wait for the iframe to appear in the DOM
             if (!assignframe) throw new Error('assignframe not found');
-            const frameElementHandle1 = await assignframe.waitForSelector("//iframe[@id='ifrSubScreen']", { timeout: 5000 });
+            const frameElementHandle1 = await assignframe.waitForSelector("//iframe[@id='ifrSubScreen']", { timeout: 10000 });
             let rolesframe =  await frameElementHandle1.contentFrame() ;
                   await rolesframe.locator(this.Elements.addBtn).click();
  
@@ -134,7 +134,7 @@ async clickRolesTab(){
   
    try {
             // Wait for the iframe to appear in the DOM
-            const frameElementHandle1 = await rolesframe.waitForSelector("//iframe[@id='ifrSubScreen']", { timeout: 3000 });
+            const frameElementHandle1 = await rolesframe.waitForSelector("//iframe[@id='ifrSubScreen']", { timeout: 10000 });
              listframe= await frameElementHandle1.contentFrame();
              await listframe.locator(this.Elements.dropdownFirstOption).click();
             
@@ -174,7 +174,7 @@ async FunctionsFrame(branch:string,Function:string){ {
        
             // Wait for the iframe to appear in the DOM
             if (!assignframe) throw new Error('assignframe not found');
-            const frameElementHandle1 = await assignframe.waitForSelector("//iframe[@id='ifrSubScreen']", { timeout: 5000 });
+            const frameElementHandle1 = await assignframe.waitForSelector("//iframe[@id='ifrSubScreen']", { timeout: 10000 });
             let functionframe =  await frameElementHandle1.contentFrame() ;
                   await functionframe.locator(this.Elements.funaddBtn).click();
  
@@ -205,7 +205,7 @@ async FunctionsFrame(branch:string,Function:string){ {
        
             // Wait for the iframe to appear in the DOM
             if (!assignframe) throw new Error('assignframe not found');
-            const frameElementHandle1 = await assignframe.waitForSelector("//iframe[@id='ifrSubScreen']", { timeout: 5000 });
+            const frameElementHandle1 = await assignframe.waitForSelector("//iframe[@id='ifrSubScreen']", { timeout: 10000 });
             let rolesframe =  await frameElementHandle1.contentFrame() ;
  await rolesframe.locator(this.Elements.okBtn).click();
 
@@ -256,7 +256,7 @@ async Screensignoff(){
         await assignframe.click(this.Elements.exitBtn);
             // Wait for the iframe to appear in the DOM
             if (!assignframe) throw new Error('assignframe not found');
-            const frameElementHandle2 = await this.page.waitForSelector("//iframe[@id='ifr_LaunchWin']", { timeout: 5000 });
+            const frameElementHandle2 = await this.page.waitForSelector("//iframe[@id='ifr_LaunchWin']", { timeout: 10000 });
             let functionframe =  await frameElementHandle2.contentFrame() ;
             await functionframe.click(this.Elements.exitbutton);
 
@@ -289,7 +289,7 @@ async Screensignoff(){
            // await frame.click(this.Elements.newTab)  
                   await frame1.click(this.Elements.exitBtn);
                   await this.page.waitForTimeout(2000)
-                   const frameElementHandle4 = await this.page.waitForSelector("//iframe[@id='ifr_LaunchWin']", { timeout: 5000 });
+                   const frameElementHandle4 = await this.page.waitForSelector("//iframe[@id='ifr_LaunchWin']", { timeout: 10000 });
             let functionframe =  await frameElementHandle4.contentFrame() ;
             await functionframe.click(this.Elements.exitbutton);
                  await this.page.click(this.Elements.selectBtn)

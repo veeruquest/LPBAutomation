@@ -190,12 +190,13 @@ async handleAmountFrame() {
   }
  
   async viewStmnt(){
+    await this.page.screenshot({path: `test-results/screenshots/full_${Date.now()}.png`,fullPage: true});
     await expect(await Msgframe.locator(this.Elements.messagestatementfee)).toBeVisible();
-    await Msgframe.locator(this.Elements.messagestatementfee).screenshot({path:`test-results/screenshots/message_${Date.now()}.png`,})
+   
      const textArea = Msgframe.locator(this.Elements.messagestatementfee);
     await textArea.evaluate(el => el.scrollTop = el.scrollHeight);
      console.log('Scrolled to the bottom of AC Statement')
-    await Msgframe.locator(this.Elements.messagestatementfee).screenshot({path:`test-results/screenshots/message_${Date.now()}.png`,})
+   // await Msgframe.locator(this.Elements.messagestatementfee).screenshot({path:`test-results/screenshots/message_${Date.now()}.png`,})
     console.log("screenshot of AC statement taken")
     await this.page.screenshot({path: `test-results/screenshots/full_${Date.now()}.png`,fullPage: true});
     console.log("Full Page Screen Shot Taken")

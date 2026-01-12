@@ -306,13 +306,11 @@ async closeScreen(){
    await newPage.getByRole('button', { name: 'Submit For Approval' }).click();
    console.log('clicked on button1')
    await newPage.waitForTimeout(5000)
-  //    //await newPage.locator("#_oj133assign_auto_tellerRemark",{timeout:5000})
-  //   await newPage.locator(this.elements.submitforApprove).click()
-  //    console.log('clicked on button2')
-  //  await newPage.waitForTimeout(2000)
+ 
      await expect(await newPage.locator(this.elements.successmsg).textContent()).toContain('Approval')
-    console.log('sent for Approval')
+    
     await newPage.locator(this.elements.okButton).click()
+console.log('sent for Approval')
     //await newPage.locator(this.elements.adviceconf).click()
     try {
       // await newPage.locator("#closeScreenDialog_oj65", { timeout: 5000 });

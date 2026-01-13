@@ -8,7 +8,7 @@ import { options } from "../helper/util/logger";
 
 const fs = require("fs-extra");
 export let browser: Browser;
-export const timeout = 400 * 1000;
+export const timeout = 30 * 1000;
 export let context: BrowserContext;
 
 

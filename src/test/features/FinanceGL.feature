@@ -1,7 +1,7 @@
 @FinanceGL
  
 Feature: Process FinanceGL for a customer
-        @set3   @tdAccChange
+        @set7   @tdAccChange
         Scenario Outline: Validate the Extraction of reports before posting journals from a new GL
             Given User navigates to the application
              When MAK user enters the username and password
@@ -18,7 +18,7 @@ Feature: Process FinanceGL for a customer
                   | BranchNumber | FunctionName | AccountNumber |
                   | 100          | ACDTRNQY     | 110010753     |
  
-        @set3
+        @set7
         Scenario Outline: Login with Maker Credential and create journal in DEDJNLON
             Given User navigates to the application
              When MAK user enters the username and password
@@ -61,7 +61,7 @@ Feature: Process FinanceGL for a customer
                   | BranchNumber | FunctionName | Description    | Debit | Credit | DrCr1 | BranchCode1 | Currency1 | Amount1 | TxnCode1 | DrCr2  | BranchCode2 | AccountNumber2 | Currency2 | Amount2 | TxnCode2 | HomeBranchNumber |
                   | 100          | DEDJNLON     | DE Transaction | 1000  | 1000   | Debit | 100         | LSL       | 1000    | ANC      | Credit | 100         | 1015367000012  | LSL       | 1000    | ANC      | 999              |
  
-        @set3
+        @set7
         Scenario Outline: Login with Checker Credential and authorize
             Given User navigates to the application
              When CHE user enters the username and password
@@ -81,7 +81,7 @@ Feature: Process FinanceGL for a customer
                   | BranchNumber | FunctionName |
                   | 100          | DESJNLON     |
  
-        @set3
+        @set7
         Scenario Outline: Validate the Extraction of reports after posting journals from a new GL
             Given User navigates to the application
              When MAK user enters the username and password
@@ -98,7 +98,7 @@ Feature: Process FinanceGL for a customer
                   | BranchNumber | FunctionName |
                   | 100          | ACDTRNQY     |
  
-        @set1    @tdGLCodeChange
+        @set5    @tdGLCodeChange
         Scenario Outline: Login with Maker Credential and create a GL in GLDCHACC
             Given User navigates to the application
              When MAK user enters the username and password
@@ -127,7 +127,7 @@ Feature: Process FinanceGL for a customer
         Examples:
                   | BranchNumber | FunctionName | GLCode    | GLDescription            | GLType | Category | DisplayOnReport | CurrencyRestrictions | PostingRestrictions | Reconciliation        | ParentGL  |
                   | 999          | GLDCHACC     | 110010831| Fund Transfer to Account | Normal | Asset    | Asset           | All Currencies       | Direct Posting      | Direct Reconciliation | 110010000 |
-        @set1
+        @set5
         Scenario Outline: Login with Checker Credential and authorize a newly created GL
             Given User navigates to the application
              When CHE user enters the username and password
@@ -147,7 +147,7 @@ Feature: Process FinanceGL for a customer
                   | BranchNumber | FunctionName |
                   | 999          | GLSCHACC     |
  
-        @set1
+        @set5
         Scenario Outline: Attempt to create a GL with a duplicate GL Code and verify the system shows an error
             Given User navigates to the application
              When MAK user enters the username and password
@@ -175,7 +175,7 @@ Feature: Process FinanceGL for a customer
                   | BranchNumber | FunctionName |
                   | 999          | GLDCHACC     |
    
-        @set1
+        @set5
         Scenario Outline: Verify user can unlock and modify GL Description in GLDCHACC
             Given User navigates to the application
              When MAK user enters the username and password
@@ -195,7 +195,7 @@ Feature: Process FinanceGL for a customer
                   | BranchNumber | FunctionName |
                   | 999          | GLDCHACC     |
  
-        @set1
+        @set5
         Scenario Outline: Login with Checker Credential and authorize a newly created GL
             Given User navigates to the application
              When CHE user enters the username and password
@@ -216,7 +216,7 @@ Feature: Process FinanceGL for a customer
                   | 999          | GLSCHACC     |
  
  
-        @set2    @tdAccChange
+        @set6    @tdAccChange
         Scenario Outline: Verify a Direct Posting GL is not available in LOV while creating a transaction in DEDJNLON
             Given User navigates to the application
              When MAK user enters the username and password

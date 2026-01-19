@@ -2,7 +2,7 @@
   module.exports = {
      default: {
 
-        tags:"@Processing01",
+        tags:"@CORE1",
         
  
           formatOptions: {

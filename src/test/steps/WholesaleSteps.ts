@@ -136,6 +136,9 @@ When("clicks on the Interest tab", async function(){
    WSPage = await new WholesalePage(fixture.page);
    await WSPage.clickonInteresttab();
 });
+When("user changes the rate change to Current Date",async function(){
+    await WSPage.DateChange()
+})
 
 When("clicks on UDE Default", async function(){
    WSPage = await new WholesalePage(fixture.page);
@@ -226,3 +229,91 @@ When("enters the Customer Number for authorization for STSCUSTD", async function
        WSPage = await new WholesalePage(fixture.page);
       await WSPage.verifyAuthorizationStatusforwholesale1();
  });
+ When("user exit the Wholesale page", async function(){
+    WSPage = await new WholesalePage(fixture.page);
+   await WSPage.exitWholesalePage();
+});
+When("checks on Tenor checkbox {string}", async function(tenor : string){
+    WSPage = await new WholesalePage(fixture.page);
+    await WSPage.checkCloseonMaturity(tenor);
+ });
+ When("checks on RollOver Details Tab {string},{string}", async function(Rollover : string, Rolloveramount : string){
+    WSPage = await new WholesalePage(fixture.page);
+    await WSPage.clickonRollOverDetailsTab();
+    await WSPage.TDRolloverDetails(Rollover, Rolloveramount);
+ });
+ When("clicks on new tab in Remption screen", async function(){
+    WSPage = await new WholesalePage(fixture.page);
+    await WSPage.handleRedempFrame()
+    await WSPage.clickNew();
+ });
+ When("enters Term Deposit Account Number {string}", async function(TDAccnum : string){
+    WSPage = await new WholesalePage(fixture.page);
+    await WSPage.enterTDAccountNumber(TDAccnum);
+ });
+ When("enters Product Code {string}", async function(ProductCode : string){ 
+    WSPage = await new WholesalePage(fixture.page);
+    await WSPage.enterProductCode(ProductCode);
+ });
+ When("User selects Redemption Mode as {string}", async function(RedemptionMode : string){
+    WSPage = await new WholesalePage(fixture.page);
+    await WSPage.selectRedemptionMode(RedemptionMode);
+ });
+ When("User enters Redemption Amount as {string}", async function(RedemptionAmount : string){
+    WSPage = await new WholesalePage(fixture.page);
+    await WSPage.enterRedemptionAmount(RedemptionAmount);
+ });
+ When("User clicks on Compute in RedemptionPage", async function(){
+    WSPage = await new WholesalePage(fixture.page);
+    await WSPage.clickcomputeBTn();
+    await WSPage.clickokInformationMessage();
+ });
+ When("User clicks on AddRow in the PayOut", async function(){
+    WSPage = await new WholesalePage(fixture.page);
+    await WSPage.clickRedempPayoutaddRowbutton();
+ });
+ When("User enters PayOut Details as {string},{string},{string}", async function(PayoutType : string, PayoutPercentage : string, PayoutOffsetAccount : string){
+    WSPage = await new WholesalePage(fixture.page);
+    await WSPage.addPayoutDetails(PayoutType, PayoutPercentage, PayoutOffsetAccount);
+    });
+    When("User enters Redemption Amount in the Pay Out Details section {string}", async function(RedemptionAmount : string){
+        WSPage = await new WholesalePage(fixture.page);
+        await WSPage.enterRedempAmount(RedemptionAmount);
+    });
+    When("User click on Save in Redemption Page", async function(){
+        WSPage = await new WholesalePage(fixture.page);
+        await WSPage.clickSavebutton();
+    });
+    Then("User confirms the Save information message", async function(){
+        WSPage = await new WholesalePage(fixture.page);
+        await WSPage.overrideandAcceptMessage()
+        await WSPage.clickokInformationMessage();
+        await WSPage.exitRedemptionPage();
+    });
+    When("user changes Authorization Status to Unauthorized for ICSREDMN", async function(){
+        WSPage = await new WholesalePage(fixture.page);
+        await WSPage.handleRedempFrame()
+               await WSPage.selectUnauthStatus();
+      });
+      When("enters Parent Account as {string}", async function(ParentAcc : string){
+        WSPage = await new WholesalePage(fixture.page);
+        await WSPage.enterParentAccount(ParentAcc);
+    });
+    When("User click search in Redemption Page", async function(){
+        WSPage = await new WholesalePage(fixture.page);
+        await WSPage.clicksearch();
+    });
+    When("User Clicks on Authorize for ICDREDMN", async function(){
+        WSPage = await new WholesalePage(fixture.page);
+        // await WSPage.handleRedempFrame1()
+        await WSPage.clickAuthRedemp();
+     });
+     When("User accepts Authorize for ICDREDMN", async function(){
+        WSPage = await new WholesalePage(fixture.page);
+        await WSPage.clickAcceptAuth();
+     });
+     Then("User confirms the Authorization success message {string}", async function(successmsg:string){
+        WSPage = await new WholesalePage(fixture.page);
+        await WSPage.verifySuccesssMessage(successmsg);
+     });
+     

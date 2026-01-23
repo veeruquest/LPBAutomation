@@ -2,7 +2,7 @@
   module.exports = {
      default: {
 
-        tags:"@Processing01",
+        tags:"@TermDeposit",
         
  
           formatOptions: {

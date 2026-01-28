@@ -58,7 +58,7 @@ Feature:Teller Operations Feature
 
   @TellerOperations3 @VaultTellerCreationAndAuthSuccess @tdstartdatechange 
  
-    Scenario Outline: Validate User creation & Autherization process
+    Scenario Outline: Validate Vault Teller creation & Autherization process
     Given User navigates to the application
     When MAK user enters the username and password
     And click on signin button
@@ -194,7 +194,7 @@ Feature:Teller Operations Feature
     | Oracle Financial Services - ENG - Transaction Input | 999        | ADMIN02     | ADMINUSER2      | 100        | Enable | DEC 03, 2025  | ENG      | 100     | CASA_SUPERVISOR       |100  | OBBRN_BASE    | PLATO | REMO | OBPY | DEPOSIT | LOAN |
 
      @TellerOperations4 @TellerToVaultAutherizationSuccess @tdstartdatechange
-    Scenario Outline: Validate User creation & Autherization process
+    Scenario Outline: Validate Teller to Vault creation & Autherization process
     Given User navigates to the application
     When MAK user enters the username and password
     And click on signin button
